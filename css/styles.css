@@ -1,3 +1,4 @@
+
 @charset "UTF-8";
 /*!
 * Start Bootstrap - One Page Wonder v6.0.6 (https://startbootstrap.com/theme/one-page-wonder)
@@ -10860,7 +10861,7 @@ header.masthead {
   overflow: hidden;
   padding-top: calc(7rem + 72px);
   padding-bottom: 7rem;
-  background: linear-gradient(0deg, #126ABD 0%, #12BDBA 100%);
+  background: linear-gradient(125deg, #71b7e6 0%, #9b59b6 100%);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: scroll;
