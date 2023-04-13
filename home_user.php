@@ -30,31 +30,9 @@
 
     <body>
     <!-- navbar start : for user -->
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">   
-            <div class="container px-5">
-                <a class="navbar-brand" href="index.php">Archery Tournament</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
-                        class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <?php
-                            if(isset($_SESSION['username'])){
-                                // ! might remove this ; moved to inside header
-                                //echo '<li class="nav-item"><a class="nav-link" href="#!">Welcome '; echo $_SESSION['username']; echo '</a></li>';
-                                echo '<li class="nav-item"><a class="nav-link" href="#!">Register</a></li>';
-                                echo '<li class="nav-item"><a class="nav-link" href="#!">Profile</a></li>';
-                                echo '<li class="nav-item"><a class="nav-link" href="#!">Logout</a></li>';
-                            }
-                            //else{
-                            //    echo '<li class="nav-item"><a class="nav-link" href="#!">Sign Up</a></li>';
-                            //    echo '<li class="nav-item"><a class="nav-link" href="#!">Log In</a></li>';
-                            //}
-                        ?>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php
+            include("navbar.php");
+        ?>
     <!-- main cont. start -->
     <!-- ! added inline : adjust footer to bottom -->
         <header class="masthead text-white" style="margin-bottom: 28vh">

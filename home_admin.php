@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>User Page</title>
+        <title>Admin Page</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -30,30 +30,9 @@
 
     <body>
     <!-- navbar start : for admin -->
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">   
-            <div class="container px-5">
-                <a class="navbar-brand" href="index.php">Archery Tournament</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
-                        class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <?php
-                            // ! might remove this ; moved to inside header
-                            if(isset($_SESSION['username'])){
-                                //echo '<li class="nav-item"><a class="nav-link" href="#!">Welcome '; echo $_SESSION['username']; echo '</a></li>';
-                                echo '<li class="nav-item"><a class="nav-link" href="#!">Record</a></li>';
-                                echo '<li class="nav-item"><a class="nav-link" href="#!">Logout</a></li>';
-                            }
-                            //else{
-                            //    echo '<li class="nav-item"><a class="nav-link" href="#!">Sign Up</a></li>';
-                            //    echo '<li class="nav-item"><a class="nav-link" href="#!">Log In</a></li>';
-                            //}
-                        ?>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php
+            include("navbar.php");
+        ?>
     <!-- main cont. start -->
     <!-- ! added inline : adjust footer to bottom -->
         <header class="masthead text-white" style="margin-bottom: 28vh">
