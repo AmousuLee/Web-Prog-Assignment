@@ -22,20 +22,9 @@
 <body id="page-top">
     <!-- Navigation-->
     <!-- ! Sign Up, Login, Other li not yet init. -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-        <div class="container px-5">
-            <a class="navbar-brand" href="#page-top">Archery Tournament</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
-                    class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#!">Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Log In</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <?php
+        include("navbar.php");
+    ?>
     <!-- Header-->
     <header class="masthead text-center text-white">
         <div class="masthead-content">
@@ -108,11 +97,9 @@
         </div>
     </section>
     <!-- Footer-->
-    <footer class="py-5 bg-black">
-        <div class="container px-5">
-            <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2023</p>
-        </div>
-    </footer>
+    <?php
+        include("footer.html");
+    ?>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
