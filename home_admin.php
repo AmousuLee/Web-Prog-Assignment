@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
             rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="assets/css/styles.css" rel="stylesheet" />
     </head>
 
     <?php
@@ -31,7 +31,7 @@
     <body>
     <!-- navbar start : for admin -->
         <?php
-            include("navbar.php");
+            include("assets/navbar.php");
         ?>
     <!-- main cont. start -->
     <!-- ! added inline : adjust footer to bottom -->
@@ -45,7 +45,7 @@
         </header>
     <!-- footer start -->
         <?php
-            include("footer.html");
+            include("assets/footer.html");
         ?>
     </body>
 </html>
