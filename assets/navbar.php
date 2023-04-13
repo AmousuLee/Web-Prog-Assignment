@@ -22,14 +22,14 @@
                         if(isset($_SESSION['username']) == "admin")
                         {
                             echo '<li class="nav-item"><a class="nav-link" href="#!">Record</a></li>';
-                            echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="assets/logout.php">Logout</a></li>';
                         }
                         // if logged in as user
                         else if (isset($_SESSION['username']))
                         {
                             echo '<li class="nav-item"><a class="nav-link" href="#!">Register</a></li>';
                             echo '<li class="nav-item"><a class="nav-link" href="#!">Profile</a></li>';
-                            echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="assets/logout.php">Logout</a></li>';
                         }
                         // else sess. var not init : not logged in
                         else

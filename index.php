@@ -16,14 +16,14 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
         rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="assets/css/styles.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
     <!-- Navigation-->
     <!-- ! Sign Up, Login, Other li not yet init. -->
     <?php
-        include("navbar.php");
+        include("assets/navbar.php");
     ?>
     <!-- Header-->
     <header class="masthead text-center text-white">
@@ -98,7 +98,7 @@
     </section>
     <!-- Footer-->
     <?php
-        include("footer.html");
+        include("assets/footer.html");
     ?>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
