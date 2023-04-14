@@ -15,20 +15,19 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
         rel="stylesheet" />
-    <!-- registration  -->
+    <!-- Core theme CSS (includes Bootstrap) -->
     <link href="assets/css/styles.css" rel="stylesheet" />
-    <link href="assets/css/loginadmin.css" rel="stylesheet" />
+    <link href="assets/css/loginReg.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
 
-<?php
+    <!-- Navbar -->
+    <?php
         include("assets/navbar.php");
     ?>
 
-
-
-    <!-- Header-->
+    <!-- Header -->
     <header class="masthead text-center text-white">
         <div class="masthead-content">
             <div class="container px-5">
@@ -37,14 +36,13 @@
         </div>
     </header>
 
-
-    <!--registration form-->
+    <!-- Login Admin form -->
     <section id="scroll">
         <div class="bodyform">
             <div class="container px-5">
                 <div class="containerForm">
-                    <div class="title">Login as Admin</div>
-                    <form action="#">
+                    <div class="titleAdmin">Login as Admin</div>
+                    <form class="loginAdmin" action="#">
                         <div class="user-details">
                             <div class="input-box">
                                 <span class="details">Email</span>
@@ -65,15 +63,15 @@
         </div>
     </section>
 
-
-    <!-- Footer-->
+    <!-- Footer -->
     <?php
         include("assets/footer.html");
     ?>
-    <!-- Bootstrap core JS-->
+    
+    <!-- Bootstrap core JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <!-- Core theme JS -->
+    <script src="assets/js/scripts.js"></script>
 </body>
 
 </html>

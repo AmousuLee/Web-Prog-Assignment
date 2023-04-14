@@ -1,0 +1,162 @@
+@charset "utf-8";
+/*!
+* This CSS is for loginUser, loginAdmin and register .php
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* * main cont. */
+.bodyform {
+	padding: 10px 70px 100px;
+	font-family: 'Poppins', sans-serif;
+}
+
+/* * form cont. */
+.containerForm {
+	max-width: 500px;
+	width: 60%;
+	background-color: #fff;
+	padding: 25px 30px;
+	border-radius: 5px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+	margin: auto;
+}
+
+/* title div */
+/* ! for each loginUser, loginAdmin and register */
+.containerForm .title,
+.containerForm .titleAdmin,
+.containerForm .titleReg {
+	font-size: 25px;
+	font-weight: 500;
+	position: relative;
+}
+
+/* ! border for loginUser */
+.containerForm .title::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 3px;
+	width: 70px;
+	border-radius: 5px;
+	background-color: #9b59b6;
+}
+
+/* ! border for loginAdmin */
+.containerForm .titleAdmin::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 3px;
+	width: 195px;
+	border-radius: 5px;
+	background-color: #9b59b6;
+}
+
+/* ! border for register */
+.containerForm .titleReg::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 3px;
+	width: 150px;
+	border-radius: 5px;
+	background-color: #9b59b6;
+}
+
+/* * form's content div */
+.containerForm form .user-details {
+	justify-content: space-between;
+	margin: 20px 0 12px 0;
+}
+
+form .user-details .input-box {
+	margin-bottom: 15px;
+	width: calc(100%);
+}
+
+form .input-box span.details {
+	display: block;
+	font-weight: 500;
+	margin-bottom: 5px;
+}
+
+.user-details .input-box input {
+	height: 45px;
+	width: 100%;
+	outline: none;
+	font-size: 16px;
+	border-radius: 5px;
+	padding-left: 15px;
+	border: 1px solid #ccc;
+	border-bottom-width: 2px;
+	transition: all 0.3s ease;
+}
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid {
+	border-color: #9b59b6;
+}
+
+/* ! Only for registration
+	- add padding to last child :
+	move reg button further down viewpoint */
+.registerUser .user-details .input-box:nth-last-child(1) {
+	padding-bottom: 20px;
+}
+
+/* * form's submit button */
+form .button {
+	height: 45px;
+	margin: 35px 0
+}
+
+form .button input {
+	height: 100%;
+	width: 100%;
+	border-radius: 5px;
+	border: none;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	background-color: #9b59b6;
+}
+
+form .button input:hover {
+	/* transform: scale(0.99); */
+	background-color: #71b7e6
+}
+
+/* ? media query - RWD. */
+@media(max-width: 584px) {
+	.container {
+		max-width: 100%;
+	}
+
+	form .user-details .input-box {
+		margin-bottom: 15px;
+		width: 100%;
+	}
+
+	.content form .user-details {
+		max-height: 300px;
+		overflow-y: scroll;
+	}
+
+	.user-details::-webkit-scrollbar {
+		width: 5px;
+	}
+}
+
+@media(max-width: 459px) {
+	.container .content {
+		flex-direction: column;
+	}
+}
