@@ -34,8 +34,8 @@
                         // else sess. var not init : not logged in
                         else
                         {
-                            echo '<li class="nav-item"><a class="nav-link" href="#!">Sign Up</a></li>';
-                            echo '<li class="nav-item"><a class="nav-link" href="#!">Log In</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="register.php">Sign Up</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="login.php">Log In</a></li>';
                         }
                     ?>
                 </ul>
