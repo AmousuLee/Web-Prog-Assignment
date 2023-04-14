@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Registration</title>
+    <title>Admin Login</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -17,24 +17,22 @@
         rel="stylesheet" />
     <!-- registration  -->
     <link href="assets/css/styles.css" rel="stylesheet" />
-    <link href="assets/css/regForm.css" rel="stylesheet" />
+    <link href="assets/css/loginadmin.css" rel="stylesheet" />
 </head>
-
-
 
 <body id="page-top">
 
-
-    <?php
+<?php
         include("assets/navbar.php");
     ?>
+
 
 
     <!-- Header-->
     <header class="masthead text-center text-white">
         <div class="masthead-content">
             <div class="container px-5">
-                <h1 class="masthead-heading mb-0">Registration</h1>
+                <h1 class="masthead-heading mb-0">Admin Login Page</h1>
             </div>
         </div>
     </header>
@@ -45,55 +43,25 @@
         <div class="bodyform">
             <div class="container px-5">
                 <div class="containerForm">
-                    <div class="title">Registration</div>
+                    <div class="title">Login as Admin</div>
                     <form action="#">
                         <div class="user-details">
-                            <div class="input-box">
-                                <span class="details">Full Name</span>
-                                <input type="text" placeholder="Enter your name" required>
-                            </div>
-                            <div class="input-box">
-                                <span class="details">Username</span>
-                                <input type="text" placeholder="Enter your username" required>
-                            </div>
                             <div class="input-box">
                                 <span class="details">Email</span>
                                 <input type="text" placeholder="Enter your email" required>
                             </div>
                             <div class="input-box">
-                                <span class="details">Phone Number</span>
-                                <input type="text" placeholder="Enter your number" required>
-                            </div>
-                            <div class="input-box">
                                 <span class="details">Password</span>
                                 <input type="text" placeholder="Enter your Password" required>
                             </div>
-                            <div class="input-box">
-                                <span class="details">Confirm Password</span>
-                                <input type="text" placeholder="Confirm your Password" required>
-                            </div>
-                        </div>
-                        <div class="gender-details">
-                            <input type="radio" name="gender" id="dot-1">
-                            <input type="radio" name="gender" id="dot-2">
-                            <span class="gender-title">Gender</span>
-                            <div class="category">
-                                <label for="dot-1">
-                                    <span class="dot one"></span>
-                                    <span class="gender">Male</span>
-                                </label>
-                                <label for="dot-2">
-                                    <span class="dot two"></span>
-                                    <span class="gender">Female</span>
-                                </label>
-                            </div>
                         </div>
                         <div class="button">
-                            <input type="submit" value="Registration">
+                            <input type="submit" value="Login">
                         </div>
                     </form>
                 </div>
             </div>
+            
         </div>
     </section>
 
