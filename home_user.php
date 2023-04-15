@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -18,11 +19,9 @@
     </head>
 
     <?php
-        session_start();
-        $_SESSION["username"] = "nigga";
 
         // check if sess. var is set ; else return to login
-        if (!isset($_SESSION["username"])) {
+        if (!isset($_SESSION["name"])) {
             header('Location: index.php');
             exit;
         }
@@ -39,7 +38,7 @@
             <div class="masthead-content">
                 <div class="container px-5">
                     <h1 class="masthead-heading mb-0">Home Page</h1>
-                    <p class="masthead-subheading mb-0">Welcome back, <?php echo $_SESSION['username'] ?>.</p>
+                    <p class="masthead-subheading mb-0">Welcome back, <?php echo $_SESSION['name'] ?>.</p>
                 </div>
             </div>
         </header>
