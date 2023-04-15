@@ -1,5 +1,5 @@
 <?php
-    if(!isset($_SESSION['name']))
+    if(!isset($_SESSION["login"]))
     {
         session_start();
     }
@@ -19,7 +19,7 @@
                 <ul class="navbar-nav ms-auto">
                     <?php
                         // if logged in as admin
-                        if(isset($_SESSION['name']) && $_SESSION['name'] == "admin")
+                        if(isset($_SESSION['adminID']) && $_SESSION['login'] == "admin")
                         {
                             echo '<li class="nav-item"><a class="nav-link" href="#!">Record</a></li>';
                             echo '<li class="nav-item"><a class="nav-link" href="assets/logout.php">Logout</a></li>';

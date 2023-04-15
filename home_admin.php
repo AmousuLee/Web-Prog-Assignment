@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -7,7 +8,7 @@
         <title>Admin Page</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/assets/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"
             rel="stylesheet" />
@@ -18,11 +19,9 @@
     </head>
 
     <?php
-        session_start();
-        $_SESSION["username"] = "admin";
 
         // check if sess. var is set ; else return to login
-        if (!isset($_SESSION["username"])) {
+        if (!isset($_SESSION["login"])) {
             header('Location: index.php');
             exit;
         }
@@ -39,7 +38,7 @@
             <div class="masthead-content">
                 <div class="container px-5">
                     <h1 class="masthead-heading mb-0">Home Page</h1>
-                    <p class="masthead-subheading mb-0">Welcome back, <?php echo $_SESSION['username'] ?>.</p>
+                    <p class="masthead-subheading mb-0">Welcome back, Admin ID : <?php echo $_SESSION['adminID'] ?>.</p>
                 </div>
             </div>
         </header>

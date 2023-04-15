@@ -42,18 +42,18 @@
             <div class="container px-5">
                 <div class="containerForm">
                     <div class="titleAdmin">Login as Admin</div>
-                    <form class="loginAdmin" action="#">
+                    <form class="loginAdmin" action="assets/loginAdminProcess.php" method="POST">
                         <div class="user-details">
                             <div class="input-box">
                                 <span class="details">Email</span>
-                                <input type="text" placeholder="Enter your email"
+                                <input type="text" name="email" placeholder="Enter your email"
                                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                                     title="Must contain standard format : johndoe@mail.com"
                                 required>
                             </div>
                             <div class="input-box">
                                 <span class="details">Password</span>
-                                <input type="password" placeholder="Enter your Password"
+                                <input type="password" name="password" placeholder="Enter your Password"
                                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                     title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
                                 required>
