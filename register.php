@@ -18,6 +18,19 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="assets/css/styles.css" rel="stylesheet" />
     <link href="assets/css/loginReg.css" rel="stylesheet" />
+    <script>
+        function passwordValidation(){
+            let P = document.getElementById("P").value;
+            let CP =document.getElementById("CP").value;
+
+            if(P!=CP){
+                alert("Password and Confirm Password not match!");
+                return false;
+            }else{
+                return true;
+            }
+        }
+    </script>
 </head>
 
 <body id="page-top">
@@ -43,23 +56,19 @@
             <div class="container px-5">
                 <div class="containerForm">
                     <div class="titleReg">Registration</div>
-                    <form class="registerUser" action="#">
+                    <form class="registerUser" action="registerProcess.php" onsubmit="return passwordValidation()">
                         <div class="user-details">
                             <div class="input-box">
-                                <span class="details">Username</span>
-                                <input type="text" placeholder="Enter your username" required>
+                                <label class="details">Email</label>
+                                <input type="text" name="email" placeholder="Enter your email" required>
                             </div>
                             <div class="input-box">
-                                <span class="details">Email</span>
-                                <input type="text" placeholder="Enter your email" required>
+                                <label class="details">Password</label>
+                                <input type="text" name="password" id="P" placeholder="Enter your Password" required>
                             </div>
                             <div class="input-box">
-                                <span class="details">Password</span>
-                                <input type="text" placeholder="Enter your Password" required>
-                            </div>
-                            <div class="input-box">
-                                <span class="details">Confirm Password</span>
-                                <input type="text" placeholder="Confirm your Password" required>
+                                <label class="details">Confirm Password</label>
+                                <input type="text" name="CP" id="CP" placeholder="Confirm your Password" required>
                             </div>
                         </div>
                         <div class="button">
@@ -82,7 +91,7 @@
     ?>
     
     <!-- Bootstrap core JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></scrip>
     <!-- Core theme JS -->
     <script src="assets/js/scripts.js"></script>
 </body>
