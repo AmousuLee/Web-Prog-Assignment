@@ -64,7 +64,7 @@
             <div class="container px-5">
                 <div class="containerForm">
                     <div class="titleReg">Registration</div>
-                    <form class="registerUser" action="registerProcess.php" method="POST" onsubmit="return passwordValidation()">
+                    <form class="registerUser" action="assets/registerProcess.php" method="POST" onsubmit="return passwordValidation()">
                         <div class="user-details">
                             <div class="input-box">
                                 <span class="details">Full Name</span>
