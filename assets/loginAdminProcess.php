@@ -14,7 +14,7 @@
             if(isset($email) && isset($password))
             {
                 // check in db for existing user
-                $sql = "SELECT * FROM `user`
+                $sql = "SELECT * FROM `admin`
                         WHERE `email` = '$email'
                         AND `password` = '$password';";
 
@@ -26,14 +26,13 @@
                 {
                     $row = $result->fetch_assoc();
                     
-                    $_SESSION["name"] = $row["name"];
+                    $_SESSION["adminID"] = $row["adminID"];
                     $_SESSION["email"] = $row["email"];
-                    $_SESSION["phoneNo"] = $row["phoneNo"];
-                    $_SESSION["login"] = "user";
+                    $_SESSION["login"] = "admin";
                     
                     //print_r($_SESSION);
                     //echo "<script>alert(\"Successfully created account! You can log in using this account now.\");</script>";
-                    header('Location: ../home_user.php');
+                    header('Location: ../home_admin.php');
                     die();
                 }
                 // else if result more than 0, conflict with existing users
@@ -41,7 +40,7 @@
                 else
                 {
                     //echo "<script>alert(\"Account has been created with same name!\");</script>";
-                    header('Location: ../login.php');
+                    header('Location: ../loginAdmin.php');
                     die();
                 }
             }
@@ -50,7 +49,7 @@
             else
             {
                 //echo "<script>alert(\"Error in registering user!\");</script>";
-                header('Location: ../login.php');
+                header('Location: ../loginAdmin.php');
             }
 
             $conn->close();
