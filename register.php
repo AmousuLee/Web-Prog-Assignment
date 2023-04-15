@@ -19,14 +19,20 @@
     <link href="assets/css/styles.css" rel="stylesheet" />
     <link href="assets/css/loginReg.css" rel="stylesheet" />
     <script>
-        function passwordValidation(){
+        function passwordValidation()
+        {
             let P = document.getElementById("P").value;
-            let CP =document.getElementById("CP").value;
+            let CP = document.getElementById("CP").value;
 
-            if(P!=CP){
+            if (P !== CP)
+            {
+                document.getElementById("P").value = "";
+                document.getElementById("CP").value = "";
                 alert("Password and Confirm Password not match!");
                 return false;
-            }else{
+            }
+            else
+            {
                 return true;
             }
         }
@@ -59,16 +65,24 @@
                     <form class="registerUser" action="registerProcess.php" onsubmit="return passwordValidation()">
                         <div class="user-details">
                             <div class="input-box">
-                                <label class="details">Email</label>
-                                <input type="text" name="email" placeholder="Enter your email" required>
+                                <span class="details">Full Name</span>
+                                <input type="text" name="name" placeholder="Enter your full name" required>
                             </div>
                             <div class="input-box">
-                                <label class="details">Password</label>
-                                <input type="text" name="password" id="P" placeholder="Enter your Password" required>
+                                <span class="details">Email</span>
+                                <input type="email" name="email" placeholder="Enter your email" required>
                             </div>
                             <div class="input-box">
-                                <label class="details">Confirm Password</label>
-                                <input type="text" name="CP" id="CP" placeholder="Confirm your Password" required>
+                                <span class="details">Password</span>
+                                <input type="password" name="password" id="P" placeholder="Enter your Password" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Confirm Password</span>
+                                <input type="password" name="CP" id="CP" placeholder="Confirm your Password" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Phone number <span>*(not necessary)</span></span>
+                                <input type="text" name="phoneNo" placeholder="Enter your phone no.">
                             </div>
                         </div>
                         <div class="button">
@@ -91,7 +105,7 @@
     ?>
     
     <!-- Bootstrap core JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></scrip>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS -->
     <script src="assets/js/scripts.js"></script>
 </body>
