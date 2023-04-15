@@ -19,7 +19,7 @@
                 <ul class="navbar-nav ms-auto">
                     <?php
                         // if logged in as admin
-                        if(isset($_SESSION['username']) == "admin")
+                        if(isset($_SESSION['username']) && $_SESSION['username'] == "admin")
                         {
                             echo '<li class="nav-item"><a class="nav-link" href="#!">Record</a></li>';
                             echo '<li class="nav-item"><a class="nav-link" href="assets/logout.php">Logout</a></li>';

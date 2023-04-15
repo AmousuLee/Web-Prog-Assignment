@@ -18,6 +18,25 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="assets/css/styles.css" rel="stylesheet" />
     <link href="assets/css/loginReg.css" rel="stylesheet" />
+    <script>
+        function passwordValidation()
+        {
+            let P = document.getElementById("P").value;
+            let CP = document.getElementById("CP").value;
+
+            if (P !== CP)
+            {
+                document.getElementById("P").value = "";
+                document.getElementById("CP").value = "";
+                alert("Password and Confirm Password not match!");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+    </script>
 </head>
 
 <body id="page-top">
@@ -43,23 +62,27 @@
             <div class="container px-5">
                 <div class="containerForm">
                     <div class="titleReg">Registration</div>
-                    <form class="registerUser" action="#">
+                    <form class="registerUser" action="registerProcess.php" onsubmit="return passwordValidation()">
                         <div class="user-details">
                             <div class="input-box">
-                                <span class="details">Username</span>
-                                <input type="text" placeholder="Enter your username" required>
+                                <span class="details">Full Name</span>
+                                <input type="text" name="name" placeholder="Enter your full name" required>
                             </div>
                             <div class="input-box">
                                 <span class="details">Email</span>
-                                <input type="text" placeholder="Enter your email" required>
+                                <input type="email" name="email" placeholder="Enter your email" required>
                             </div>
                             <div class="input-box">
                                 <span class="details">Password</span>
-                                <input type="text" placeholder="Enter your Password" required>
+                                <input type="password" name="password" id="P" placeholder="Enter your Password" required>
                             </div>
                             <div class="input-box">
                                 <span class="details">Confirm Password</span>
-                                <input type="text" placeholder="Confirm your Password" required>
+                                <input type="password" name="CP" id="CP" placeholder="Confirm your Password" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Phone number <span>*(not necessary)</span></span>
+                                <input type="text" name="phoneNo" placeholder="Enter your phone no.">
                             </div>
                         </div>
                         <div class="button">
