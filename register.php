@@ -21,9 +21,11 @@
     <script>
         function passwordValidation()
         {
+            // local var declr. - val init from elem
             let P = document.getElementById("P").value;
             let CP = document.getElementById("CP").value;
 
+            // if P is not litereally equal to CP
             if (P !== CP)
             {
                 document.getElementById("P").value = "";
@@ -56,33 +58,48 @@
     </header>
 
     <!-- registration form -->
-    <!-- //! reg. for user ; for now only accept username, password and email -->
+    <!-- //! input validation is done on input pattern-title -->
     <section id="scroll">
         <div class="bodyform">
             <div class="container px-5">
                 <div class="containerForm">
                     <div class="titleReg">Registration</div>
-                    <form class="registerUser" action="registerProcess.php" onsubmit="return passwordValidation()">
+                    <form class="registerUser" action="registerProcess.php" method="POST" onsubmit="return passwordValidation()">
                         <div class="user-details">
                             <div class="input-box">
                                 <span class="details">Full Name</span>
-                                <input type="text" name="name" placeholder="Enter your full name" required>
+                                <input type="text" name="name" placeholder="Enter your full name"
+                                    pattern="[A-Z][a-z]{1,}\s[A-Z][a-z]{1,}$"
+                                    title="Must contain full name e.g. John Doe"
+                                required>
                             </div>
                             <div class="input-box">
                                 <span class="details">Email</span>
-                                <input type="email" name="email" placeholder="Enter your email" required>
+                                <input type="email" name="email" placeholder="Enter your email"
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                    title="Must contain standard format : johndoe@mail.com"
+                                required>
                             </div>
                             <div class="input-box">
                                 <span class="details">Password</span>
-                                <input type="password" name="password" id="P" placeholder="Enter your Password" required>
+                                <input type="password" name="password" id="P" placeholder="Enter your Password"
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
+                                required>
                             </div>
                             <div class="input-box">
                                 <span class="details">Confirm Password</span>
-                                <input type="password" name="CP" id="CP" placeholder="Confirm your Password" required>
+                                <input type="password" name="CP" id="CP" placeholder="Confirm your Password" 
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
+                                required>
                             </div>
                             <div class="input-box">
                                 <span class="details">Phone number <span>*(not necessary)</span></span>
-                                <input type="text" name="phoneNo" placeholder="Enter your phone no.">
+                                <input type="text" name="phoneNo" placeholder="Enter your phone no."
+                                    pattern="\d{10,11}"
+                                    title="Must contain 10/11 characters (Do not include +60)" 
+                                >
                             </div>
                         </div>
                         <div class="button">
