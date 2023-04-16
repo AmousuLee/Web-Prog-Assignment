@@ -18,27 +18,6 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="assets/css/styles.css" rel="stylesheet" />
     <link href="assets/css/loginReg.css" rel="stylesheet" />
-    <script>
-        function passwordValidation()
-        {
-            // local var declr. - val init from elem
-            let P = document.getElementById("P").value;
-            let CP = document.getElementById("CP").value;
-
-            // if P is not litereally equal to CP
-            if (P !== CP)
-            {
-                document.getElementById("P").value = "";
-                document.getElementById("CP").value = "";
-                alert("Password and Confirm Password not match!");
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-    </script>
 </head>
 
 <body id="page-top">
@@ -125,6 +104,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS -->
     <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/validation.js"></script>
 </body>
 
 </html>
