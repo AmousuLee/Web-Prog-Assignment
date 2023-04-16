@@ -27,7 +27,9 @@
                             echo '<li class="nav-item"><a class="nav-link" href="assets/logout.php">Logout</a></li>';
                         }
                         // if logged in as user AND at registerEvent page
-                        else if (isset($_SESSION['login']) && preg_match("/registerEvent/i", $current_site) == 1)
+                        else if (isset($_SESSION['login'])
+                            && preg_match("/registerEvent/i", $current_site) == 1
+                            || preg_match("/profile_user/i", $current_site) == 1)
                         {
                             echo '<li class="nav-item"><a class="nav-link" href="home_user.php">Home</a></li>';
                             echo '<li class="nav-item"><a class="nav-link" href="assets/logout.php">Logout</a></li>';
@@ -36,7 +38,7 @@
                         else if (isset($_SESSION['login']))
                         {
                             echo '<li class="nav-item"><a class="nav-link" href="registerEvent.php">Register</a></li>';
-                            echo '<li class="nav-item"><a class="nav-link" href="#!">Profile</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="profile_user.php">Profile</a></li>';
                             echo '<li class="nav-item"><a class="nav-link" href="assets/logout.php">Logout</a></li>';
                         }
                         // else sess. var not init : not logged in
