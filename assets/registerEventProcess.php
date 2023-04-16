@@ -4,48 +4,49 @@
     </head>
     <body>
         <?php
-            $email = $_POST["email"];
-            $password = $_POST["password"];
+            $category = $_POST["category"];
+            $name = $_SESSION["name"];
 
             $conn = new mysqli("127.0.0.1", "root", "", "archeryevent") or die("Connection failed : " . $conn->connect_error);
 
             // ! check if all non-null val is set
-            if(isset($email) && isset($password))
+            if(isset($category))
             {
-                // check in db for existing user
+                // check in db for existing name
                 $sql = "SELECT * FROM `user`
-                        WHERE `email` = '$email'
-                        AND `password` = '$password';";
+                        WHERE `name` = '$name';";
 
                 $result = mysqli_query($conn, $sql);
 
                 // if result more than 0 , found user
-                // ? proceed to set session
+                // ? proceed to insert data
                 if ($result->num_rows > 0)
                 {
                     $row = $result->fetch_assoc();
-                    
-                    $_SESSION["name"] = $row["name"];
-                    $_SESSION["email"] = $row["email"];
-                    $_SESSION["phoneNo"] = $row["phoneNo"];
-                    $_SESSION["login"] = "user";
+                    $userID = $row["userID"];
+
+                    $sql = "INSERT INTO `event` (`userID`, `category`)
+                            VALUES ('$userID', '$category');";
+
+                    mysqli_query($conn, $sql);
                     
                     header('Location: ../home_user.php');
                     die();
                 }
                 // else if result is 0, did not found user
-                // ? return back to login
+                // ? return back to registerEvent
                 else
                 {
-                    header('Location: ../login.php');
+                    header('Location: ../registerEvent.php');
                     die();
                 }
             }
             // ! else one of the value above isnt set
-            // ? return back to login
+            // ? return back to registerEvent
             else
             {
-                header('Location: ../login.php');
+                header('Location: ../registerEvent.php');
+                die();
             }
 
             $conn->close();
