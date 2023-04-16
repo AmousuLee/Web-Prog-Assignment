@@ -53,56 +53,56 @@
         </header>
 
         <section id="scroll">
-        <div class="bodyform">
-            <div class="container px-5">
-                <div class="containerForm">
-                    <div class="titleProfile">Update your profile here!</div>
-                    <form class="registerUser" action="assets/updateProfile.php" method="POST" onsubmit="return passwordValidation()">
-                        <div class="user-details">
-                            <div class="input-box">
-                                <span class="details">Full Name</span>
-                                <input type="text" name="name" value="<?php echo $row["name"]; ?>"
-                                    readonly
-                                    title="You cannot change your name, right? :troll:"
-                                >
+            <div class="bodyform">
+                <div class="container px-5">
+                    <div class="containerForm">
+                        <div class="titleProfile">Update your profile here!</div>
+                        <form class="registerUser" action="assets/updateProfile.php" method="POST" onsubmit="return passwordValidation()">
+                            <div class="user-details">
+                                <div class="input-box">
+                                    <span class="details">Full Name</span>
+                                    <input type="text" name="name" value="<?php echo $row["name"]; ?>"
+                                        readonly
+                                        title="You cannot change your name, right? :troll:"
+                                    >
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Email</span>
+                                    <input type="email" name="email" placeholder="<?php echo $row["email"]; ?>"
+                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                        title="Must contain standard format : johndoe@mail.com"
+                                    >
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Password</span>
+                                    <input type="password" name="password" id="P" placeholder="Enter your new password"
+                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
+                                    required>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Confirm Password</span>
+                                    <input type="password" name="CP" id="CP" placeholder="Confirm your new password" 
+                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
+                                    required>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Phone number <span>*(not necessary)</span></span>
+                                    <input type="text" name="phoneNo" placeholder="<?php if($row["phoneNo"] == "") { echo "Enter your phone no.";} else { echo $row["phoneNo"];}?>"
+                                        pattern="\d{10,11}"
+                                        title="Must contain 10/11 characters (Do not include +60)" 
+                                    >
+                                </div>
                             </div>
-                            <div class="input-box">
-                                <span class="details">Email</span>
-                                <input type="email" name="email" placeholder="<?php echo $row["email"]; ?>"
-                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                                    title="Must contain standard format : johndoe@mail.com"
-                                >
+                            <div class="button">
+                                <input type="submit" value="Update">
                             </div>
-                            <div class="input-box">
-                                <span class="details">Password</span>
-                                <input type="password" name="password" id="P" placeholder="Enter your new password"
-                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
-                                required>
-                            </div>
-                            <div class="input-box">
-                                <span class="details">Confirm Password</span>
-                                <input type="password" name="CP" id="CP" placeholder="Confirm your new password" 
-                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
-                                required>
-                            </div>
-                            <div class="input-box">
-                                <span class="details">Phone number <span>*(not necessary)</span></span>
-                                <input type="text" name="phoneNo" placeholder="<?php if($row["phoneNo"] == "") { echo "Enter your phone no.";} else { echo $row["phoneNo"];}?>"
-                                    pattern="\d{10,11}"
-                                    title="Must contain 10/11 characters (Do not include +60)" 
-                                >
-                            </div>
-                        </div>
-                        <div class="button">
-                            <input type="submit" value="Update">
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- footer start -->
         <?php

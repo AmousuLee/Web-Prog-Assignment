@@ -21,7 +21,7 @@
     <?php
 
         // check if sess. var is set ; else return to login
-        if (!isset($_SESSION["login"])) {
+        if (!isset($_SESSION["login"]) && $_SESSION["login"] != "admin") {
             header('Location: index.php');
             exit;
         }

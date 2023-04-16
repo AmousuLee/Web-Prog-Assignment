@@ -23,8 +23,17 @@
                         // if logged in as admin
                         if(isset($_SESSION['adminID']) && $_SESSION['login'] == "admin")
                         {
-                            echo '<li class="nav-item"><a class="nav-link" href="#!">Record</a></li>';
-                            echo '<li class="nav-item"><a class="nav-link" href="assets/logout.php">Logout</a></li>';
+                            // if logged in as admin AND at recordAdmin page
+                            if (preg_match("/recordAdmin/i", $current_site) == 1)
+                            {
+                                echo '<li class="nav-item"><a class="nav-link" href="home_admin.php">Home</a></li>';
+                                echo '<li class="nav-item"><a class="nav-link" href="assets/logout.php">Logout</a></li>';    
+                            }
+                            else
+                            {
+                                echo '<li class="nav-item"><a class="nav-link" href="recordAdmin.php">Record</a></li>';
+                                echo '<li class="nav-item"><a class="nav-link" href="assets/logout.php">Logout</a></li>';
+                            }
                         }
                         // if logged in as user AND at registerEvent page
                         else if (isset($_SESSION['login'])

@@ -82,7 +82,7 @@
 	background-color: #9b59b6;
 }
 
-/* ! border for register */
+/* ! border for profile */
 .containerForm .titleProfile::before {
 	content: "";
 	position: absolute;
