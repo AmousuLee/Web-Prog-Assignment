@@ -36,10 +36,11 @@
 }
 
 /* title div */
-/* ! for each loginUser, loginAdmin and register */
+/* ! for each loginUser, loginAdmin, register and profile */
 .containerForm .title,
 .containerForm .titleAdmin,
-.containerForm .titleReg {
+.containerForm .titleReg,
+.containerForm .titleProfile {
 	font-size: 25px;
 	font-weight: 500;
 	position: relative;
@@ -77,6 +78,18 @@
 	bottom: 0;
 	height: 3px;
 	width: 150px;
+	border-radius: 5px;
+	background-color: #9b59b6;
+}
+
+/* ! border for register */
+.containerForm .titleProfile::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 3px;
+	width: 310px;
 	border-radius: 5px;
 	background-color: #9b59b6;
 }
