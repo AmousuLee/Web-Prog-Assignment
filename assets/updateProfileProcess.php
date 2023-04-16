@@ -25,7 +25,9 @@
                 // ? proceed to update data
                 if ($result->num_rows > 0)
                 {
+                    // set userID for update
                     $rows = $result->fetch_assoc();
+                    $userID = $rows["userID"];
 
                     // ! check if user did not updated email
                     if ($email == "")
@@ -36,8 +38,7 @@
                     {
                         $phoneNo = $rows["phoneNo"];
                     }
-                    $userID = $rows["userID"];
-
+                    
                     $sql = "UPDATE `user`
                             SET `email` = '$email',
                                 `password` = '$password',
@@ -46,7 +47,6 @@
 
                     mysqli_query($conn, $sql);
                     
-                    //echo "<script>alert(\"Successfully created account! You can log in using this account now.\");</script>";
                     header('Location: ../home_user.php');
                     die();
                 }
@@ -54,7 +54,6 @@
                 // ? return back to profile_user
                 else
                 {
-                    //echo "<script>alert(\"Account has been created with same name!\");</script>";
                     header('Location: ../profile_user.php');
                     die();
                 }
@@ -63,8 +62,8 @@
             // ? return back to profile_user
             else
             {
-                //echo "<script>alert(\"Error in registering user!\");</script>";
                 header('Location: ../profile_user.php');
+                die();
             }
 
             $conn->close();

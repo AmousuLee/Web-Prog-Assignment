@@ -4,7 +4,6 @@
     </head>
     <body>
         <?php
-
             $name = $_POST["name"];
             $email = $_POST["email"];
             $password = $_POST["password"];
@@ -30,7 +29,6 @@
 
                     mysqli_query($conn, $sql);
                     
-                    //echo "<script>alert(\"Successfully created account! You can log in using this account now.\");</script>";
                     header('Location: ../login.php');
                     die();
                 }
@@ -38,7 +36,6 @@
                 // ? return back to register
                 else
                 {
-                    //echo "<script>alert(\"Account has been created with same name!\");</script>";
                     header('Location: ../register.php');
                     die();
                 }
@@ -47,8 +44,8 @@
             // ? return back to register
             else
             {
-                //echo "<script>alert(\"Error in registering user!\");</script>";
                 header('Location: ../register.php');
+                die();
             }
 
             $conn->close();
