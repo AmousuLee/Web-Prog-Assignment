@@ -4,7 +4,6 @@
     </head>
     <body>
         <?php
-
             $email = $_POST["email"];
             $password = $_POST["password"];
 
@@ -30,8 +29,6 @@
                     $_SESSION["email"] = $row["email"];
                     $_SESSION["login"] = "admin";
                     
-                    //print_r($_SESSION);
-                    //echo "<script>alert(\"Successfully created account! You can log in using this account now.\");</script>";
                     header('Location: ../home_admin.php');
                     die();
                 }
@@ -39,7 +36,6 @@
                 // ? return back to login
                 else
                 {
-                    //echo "<script>alert(\"Account has been created with same name!\");</script>";
                     header('Location: ../loginAdmin.php');
                     die();
                 }
@@ -48,8 +44,8 @@
             // ? return back to login
             else
             {
-                //echo "<script>alert(\"Error in registering user!\");</script>";
                 header('Location: ../loginAdmin.php');
+                die();
             }
 
             $conn->close();

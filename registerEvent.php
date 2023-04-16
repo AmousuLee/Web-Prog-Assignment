@@ -43,7 +43,7 @@
             <div class="container px-5">
                 <div class="containerForm">
                     <div class="titleReg">Registration</div>
-                    <form class="registerUser" action="#!" method="POST" style="padding-top: 20px;">
+                    <form class="registerUser" action="assets/registerEventProcess.php" method="POST" style="padding-top: 20px;">
                         <div class="category-details">
                             <input type="radio" name="category" id="dot-1" value="1">
                             <input type="radio" name="category" id="dot-2" value="2">
