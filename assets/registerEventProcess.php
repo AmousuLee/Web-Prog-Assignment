@@ -1,55 +1,59 @@
-<?php session_start(); ?>
-<html>
-    <head>
-    </head>
-    <body>
-        <?php
-            $category = $_POST["category"];
-            $name = $_SESSION["name"];
+<script>
+    function badUser(){
+        alert("Name Doesn't Exist.");
+        window.location = '../registerEvent.php';
+    }
 
-            $conn = new mysqli("127.0.0.1", "root", "", "archeryevent") or die("Connection failed : " . $conn->connect_error);
+    function successMsg(){
+        alert("You have successfully register for the event!")
+    }
+</script>
 
-            // ! check if all non-null val is set
-            if(isset($category))
-            {
-                // check in db for existing name
-                $sql = "SELECT * FROM `user`
-                        WHERE `name` = '$name';";
+<?php
+    session_start();
+    $category = $_POST["category"];
+    $name = $_SESSION["name"];
 
-                $result = mysqli_query($conn, $sql);
+    include("DB_conn.php");
 
-                // if result more than 0 , found user
-                // ? proceed to insert data
-                if ($result->num_rows > 0)
-                {
-                    $row = $result->fetch_assoc();
-                    $userID = $row["userID"];
+    // ! check if all non-null val is set
+    if(isset($category))
+    {
+        // check in db for existing name
+        $sql = "SELECT * FROM `user`
+                WHERE `name` = '$name';";
 
-                    $sql = "INSERT INTO `event` (`userID`, `category`)
-                            VALUES ('$userID', '$category');";
+        $result = mysqli_query($conn, $sql);
 
-                    mysqli_query($conn, $sql);
-                    
-                    header('Location: ../home_user.php');
-                    die();
-                }
-                // else if result is 0, did not found user
-                // ? return back to registerEvent
-                else
-                {
-                    header('Location: ../registerEvent.php');
-                    die();
-                }
-            }
-            // ! else one of the value above isnt set
-            // ? return back to registerEvent
-            else
-            {
-                header('Location: ../registerEvent.php');
-                die();
-            }
+        // if result more than 0 , found user
+        // ? proceed to insert data
+        if ($result->num_rows > 0)
+        {
+            $row = $result->fetch_assoc();
+            $userID = $row["userID"];
 
+            $sql = "INSERT INTO `event` (`userID`, `category`)
+                    VALUES ('$userID', '$category');";
+
+            mysqli_query($conn, $sql);
             $conn->close();
-        ?>
-    </body>
-</html>
+            echo "<script>successMsg()</script>";
+            die();
+        }
+        // else if result is 0, did not found user
+        // ? return back to registerEvent
+        else
+        {
+            $conn->close();
+            echo "<script>badUser()</script>";
+            die();
+        }
+    }
+    // ! else one of the value above isnt set
+    // ? return back to registerEvent
+    else
+    {
+        header('Location: ../registerEvent.php');
+        die();
+    }
+?>

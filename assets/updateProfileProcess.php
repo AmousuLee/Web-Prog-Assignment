@@ -9,7 +9,7 @@
             $password = $_POST["password"];
             $phoneNo = $_POST["phoneNo"];
 
-            $conn = new mysqli("127.0.0.1", "root", "", "archeryevent") or die("Connection failed : " . $conn->connect_error);
+            include("DB_conn.php");
 
             // ! check EITHER if non-null val is set
             // ? should be short-circut since $name is always set from form
