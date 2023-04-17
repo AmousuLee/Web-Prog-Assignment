@@ -57,7 +57,7 @@
                 <div class="container px-5">
                     <div class="containerForm">
                         <div class="titleProfile">Update your profile here!</div>
-                        <form class="registerUser" action="assets/updateProfile.php" method="POST" onsubmit="return passwordValidation()">
+                        <form class="registerUser" action="assets/updateProfileProcess.php" method="POST" onsubmit="return passwordValidation()">
                             <div class="user-details">
                                 <div class="input-box">
                                     <span class="details">Full Name</span>
