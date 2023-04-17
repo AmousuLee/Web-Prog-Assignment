@@ -6,6 +6,7 @@
 </script>
 
 <?php
+    session_start();
     $email = $_POST["email"];
     $password = $_POST["password"];
 
@@ -27,7 +28,6 @@
         {
             $row = $result->fetch_assoc();
 
-            session_start();
             $_SESSION["name"] = $row["name"];
             $_SESSION["email"] = $row["email"];
             $_SESSION["phoneNo"] = $row["phoneNo"];
