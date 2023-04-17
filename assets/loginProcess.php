@@ -7,7 +7,7 @@
             $email = $_POST["email"];
             $password = $_POST["password"];
 
-            $conn = new mysqli("127.0.0.1", "root", "", "archeryevent") or die("Connection failed : " . $conn->connect_error);
+            include("DB_conn.php");
 
             // ! check if all non-null val is set
             if(isset($email) && isset($password))
