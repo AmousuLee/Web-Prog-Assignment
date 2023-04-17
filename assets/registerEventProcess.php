@@ -7,6 +7,11 @@
     function successMsg(){
         alert("You have successfully register for the event!")
     }
+
+    function noCategory(){
+        alert("Please select one of the category!")
+        window.location = '../registerEvent.php';
+    }
 </script>
 
 <?php
@@ -53,7 +58,8 @@
     // ? return back to registerEvent
     else
     {
-        header('Location: ../registerEvent.php');
+        $conn->close();
+        echo "<script>noCategory()</script>";
         die();
     }
 ?>
