@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$dbusernamer = "root";
-$dbpass = "";
-$dbase = "archeryevent";
+$serverName = "localhost";
+$dbUsername = "root";
+$dbPass = "";
+$dbName = "archeryevent";
 
-$conn = new mysqli($servername, $dbusernamer, $dbpass, $dbase) or die("Connection failed : " . $conn->connect_error);
+$conn = new mysqli($serverName, $dbUsername, $dbPass, $dbName) or die("Connection failed : " . $conn->connect_error);
 ?>
