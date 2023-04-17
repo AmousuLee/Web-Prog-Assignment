@@ -1,14 +1,20 @@
 <script>
     function badUser(){
-        alert("Name Doesn't Exist");
+        alert("Name Doesn't Exist.");
+        window.location = '../registerEvent.php';
+    }
+
+    function successMsg(){
+        alert("You have successfully register for the event!")
     }
 </script>
+
 <?php
     session_start();
     $category = $_POST["category"];
     $name = $_SESSION["name"];
 
-    $conn = new mysqli("127.0.0.1", "root", "", "archeryevent") or die("Connection failed : " . $conn->connect_error);
+    include("DB_conn.php");
 
     // ! check if all non-null val is set
     if(isset($category))
@@ -31,7 +37,7 @@
 
             mysqli_query($conn, $sql);
             $conn->close();
-            header('Location: ../home_user.php');
+            echo "<script>successMsg()</script>";
             die();
         }
         // else if result is 0, did not found user
@@ -40,7 +46,6 @@
         {
             $conn->close();
             echo "<script>badUser()</script>";
-            header('Location: ../registerEvent.php');
             die();
         }
     }
