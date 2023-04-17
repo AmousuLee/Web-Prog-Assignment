@@ -1,8 +1,10 @@
 <script>
     function badUser(){
-        alert("name already exist! Try to login.");
+        alert("Name already exist! Try login to your account.");
+        window.location = '../register.php';
     }
 </script>
+
 <?php
     $name = $_POST["name"];
     $email = $_POST["email"];
@@ -39,7 +41,6 @@
         {
             mysqli_close($conn);
             echo "<script>badUser()</script>";
-            header('Location: ../register.php');
             die();
         }
     }
@@ -47,6 +48,7 @@
     // ? return back to register
     else
     {
+        mysqli_close($conn);
         header('Location: ../register.php');
         die();
     }   
