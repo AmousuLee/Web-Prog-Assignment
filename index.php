@@ -29,7 +29,7 @@
     <header class="masthead text-center text-white">
         <div class="masthead-content">
             <div class="container px-5">
-                <h1 class="masthead-heading mb-0">BaBaBoi Archery</h1>
+                <h1 class="masthead-heading mb-0">BaBaBoi Archery Tourney</h1>
                 <h2 class="masthead-subheading mb-0">Join us, and go yolo</h2>
                 <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Learn More</a>
             </div>
@@ -87,15 +87,14 @@
                 </div>
                 <div class="col-lg-6 order-lg-1">
                     <div class="p-5">
-                        <h2 class="display-4">Let there be rock!</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam
-                            sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione
-                            voluptatum molestiae adipisci, beatae obcaecati.</p>
+                        <h2 class="display-4">Join the Tournament now!</h2>
+                        <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Join</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
     <!-- Footer-->
     <?php
         include("assets/footer.html");

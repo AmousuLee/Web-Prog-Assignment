@@ -35,10 +35,62 @@
             </div>
         </div>
     </header>
+    <!--Event Detail-->
+    <section>
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
 
+                    <div class="p-5">
+                        <h2 class="display-4">Tournament Detail</h2>
+                        <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Range</th>
+                                <th scope="col">Target Size</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Time</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>50 meter</td>
+                                <td>80 centimeter</td>
+                                <td>20/5/2023</td>
+                                <td>5:00pm</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>50 meter</td>
+                                <td>122 centimeter</td>
+                                <td>20/5/2023</td>
+                                <td>6:00pm</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td>70 meter</td>
+                                <td>80 centimeter</td>
+                                <td>21/5/2023</td>
+                                <td>5:00pm</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">4</th>
+                                <td>70 meter</td>
+                                <td>122 centimeter</td>
+                                <td>21/5/2023</td>
+                                <td>6:00pm</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+
+            </div>
+        </div>
+    </section>
     <!-- Event registration form -->
     <!-- //! input validation is done on input pattern-title -->
-    <section id="scroll">
+    <section>
         <div class="bodyform">
             <div class="container px-5">
                 <div class="containerForm">
