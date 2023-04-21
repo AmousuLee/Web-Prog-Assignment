@@ -30,7 +30,7 @@
         else
         {
             $email = $_SESSION['email'];
-            $conn = new mysqli("127.0.0.1", "root", "", "archeryevent") or die("Connection failed : " . $conn->connect_error);
+            include("DB_conn.php");
 
             $sql = "SELECT * FROM `user` WHERE `email` = '$email';";
             $result = mysqli_query($conn, $sql);

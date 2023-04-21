@@ -25,6 +25,12 @@
     <!-- Navbar -->
     <?php
         include ("assets/navbar.php");
+        $var;
+        if(isset($_SESSION['login'])){
+            $var = "t";
+        }else{
+            $var = "f";
+        }
     ?>
 
     <!-- Header -->
@@ -58,28 +64,28 @@
                                 <td>50 meter</td>
                                 <td>80 centimeter</td>
                                 <td>20/5/2023</td>
-                                <td>5:00pm</td>
+                                <td>5:00 P.M. - 6:00 P.M.</td>
                               </tr>
                               <tr>
                                 <th scope="row">2</th>
                                 <td>50 meter</td>
                                 <td>122 centimeter</td>
                                 <td>20/5/2023</td>
-                                <td>6:00pm</td>
+                                <td>6:00 P.M. - 7:00 P.M.</td>
                               </tr>
                               <tr>
                                 <th scope="row">3</th>
                                 <td>70 meter</td>
                                 <td>80 centimeter</td>
                                 <td>21/5/2023</td>
-                                <td>5:00pm</td>
+                                <td>5:00 P.M. - 6:00 P.M.</td>
                               </tr>
                               <tr>
                                 <th scope="row">4</th>
                                 <td>70 meter</td>
                                 <td>122 centimeter</td>
                                 <td>21/5/2023</td>
-                                <td>6:00pm</td>
+                                <td>6:00 P.M. - 7:00 P.M.</td>
                               </tr>
                             </tbody>
                           </table>
@@ -95,7 +101,7 @@
             <div class="container px-5">
                 <div class="containerForm">
                     <div class="titleReg">Registration</div>
-                    <form class="registerUser" action="assets/registerEventProcess.php" method="POST" style="padding-top: 20px;">
+                    <form class="registerUser" action="assets/registerEventProcess.php" method="POST" style="padding-top: 20px;" onsubmit="return loggedAsUser('<?php echo $var ?>')">
                         <div class="category-details">
                             <input type="radio" name="category" id="dot-1" value="1">
                             <input type="radio" name="category" id="dot-2" value="2">
@@ -139,7 +145,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS -->
     <script src="assets/js/scripts.js"></script>
-    <script src="assets/js/validation.js"></script>
+    <script src="assets/js/logged.js"></script>
 </body>
 
 </html>
