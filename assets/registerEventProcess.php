@@ -18,6 +18,7 @@
     session_start();
     $category = $_POST["category"];
     $name = $_SESSION["name"];
+    
 
     include("DB_conn.php");
 
