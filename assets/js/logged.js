@@ -1,4 +1,4 @@
-function loggedAsUser(bool)
+function loggedAsUser()
 {
     if(bool=='f'){
         alert("Look Like you havent login to your account. You must login/register an account to register for the event!");
