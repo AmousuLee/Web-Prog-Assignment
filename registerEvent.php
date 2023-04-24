@@ -25,6 +25,7 @@
     <!-- Navbar -->
     <?php
         include ("assets/navbar.php");
+        include("assets/DB_conn.php");
         $var;
         if(isset($_SESSION['login'])){
             $var = "t";
@@ -56,37 +57,25 @@
                                 <th scope="col">Target Size</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Time</th>
+                                <th scope="col">Register</th>
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>50 meter</td>
-                                <td>80 centimeter</td>
-                                <td>20/5/2023</td>
-                                <td>5:00 P.M. - 6:00 P.M.</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">2</th>
-                                <td>50 meter</td>
-                                <td>122 centimeter</td>
-                                <td>20/5/2023</td>
-                                <td>6:00 P.M. - 7:00 P.M.</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">3</th>
-                                <td>70 meter</td>
-                                <td>80 centimeter</td>
-                                <td>21/5/2023</td>
-                                <td>5:00 P.M. - 6:00 P.M.</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">4</th>
-                                <td>70 meter</td>
-                                <td>122 centimeter</td>
-                                <td>21/5/2023</td>
-                                <td>6:00 P.M. - 7:00 P.M.</td>
-                              </tr>
+                            <?php
+                                $sql = "SELECT * FROM category";
+                                $query = mysqli_query($conn,$sql);
+                                $i = 0;
+                                while($result = mysqli_fetch_array($query,MYSQLI_NUM)){
+                                    echo "<tr>";
+                                        echo "<th scope='row'>".++$i."</th>";
+                                        echo "<td>$result[1] meter</td>";
+                                        echo "<td>$result[2] centimeter</td>";
+                                        echo "<td>$result[3]</td>";
+                                        echo "<td>$result[4]";
+                                        echo "<td><a class='btn btn-primary btn-sm' href='assets/registerEventProcess.php?id=".$result[0]."' role='button'>Register</a>";
+                                    echo "</tr>";
+                                }
+                            ?>
                             </tbody>
                           </table>
                     </div>
