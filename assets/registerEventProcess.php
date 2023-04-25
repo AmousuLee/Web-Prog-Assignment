@@ -12,10 +12,21 @@
         alert("Please select one of the category!")
         window.location = '../registerEvent.php';
     }
+
+    function notLogin(){
+        alert("Look Like you haven't login yet. Please login/register to join the event!")
+        window.location = '../login.php';
+    }
+
 </script>
 
 <?php
     session_start();
+    if (!isset($_SESSION["login"]) && $_SESSION["login"] != "user") {
+        echo "<script>notLogin()</script>";
+        exit;
+    }
+
     $category = $_POST["category"];
     $name = $_SESSION["name"];
     

@@ -29,11 +29,10 @@
         <?php
             include("assets/navbar.php");
         ?>
-                <header class="masthead text-white" style="margin-bottom: 28vh">
+                <header class="masthead text-white" style="margin-bottom: 10vh">
             <div class="masthead-content">
                 <div class="container px-5">
-                    <h1 class="masthead-heading mb-0">Home Page</h1>
-                    <p class="masthead-subheading mb-0">Welcome back, Admin ID : <?php echo $_SESSION['adminID'] ?>.</p>
+                    <h1 class="masthead-heading mb-0">Search User</h1>
                 </div>
             </div>
         </header>
@@ -48,7 +47,8 @@
     $result = mysqli_query($conn, $sql); 
     $row=mysqli_fetch_array($result,MYSQLI_BOTH);
 
-    if($name == $row['name']){
+    if(mysqli_num_rows($result)>1){
+        $name == $row['name'];
         $id = $row['userID'];
         $email = $row['email'];
         $password = $row['password'];
@@ -83,7 +83,7 @@
                             </div>
                         </div>
                         <div>
-                            <span class="details">Event Registered:</span>
+                            <span class="details">Event Registeraed:</span>
                             <table class="table table-info table-striped">
                             <thead>
                               <tr>
@@ -110,7 +110,9 @@
                                             echo "<td>$row[Time]</td>";
                                         echo "</tr>";
                                     }
-                                }  
+                                }
+                                
+                                mysqli_close($conn);
                             ?>
                             </tbody>
                             </table>
@@ -127,9 +129,11 @@
             </div>  
         </div>
 </section>
-<?php
+
+    <?php
     }
     else{
+        mysqli_close($conn);
         echo "<script>badUser()</script>";
         die();
     } ?>
@@ -143,6 +147,5 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></scrip>
         <!-- Core theme JS -->
         <script src="assets/js/scripts.js"></script>
-        <script src="assets/js/validation.js"></script>
     </body>
 </html>

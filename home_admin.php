@@ -35,7 +35,7 @@
         ?>
     <!-- main cont. start -->
     <!-- ! added inline : adjust footer to bottom -->
-        <header class="masthead text-white" style="margin-bottom: 28vh">
+        <header class="masthead text-white" style="margin-bottom: 10vh">
             <div class="masthead-content">
                 <div class="container px-5">
                     <h1 class="masthead-heading mb-0">Home Page</h1>
@@ -46,28 +46,28 @@
 
        
         <section>
-        <div class="container px-5">
-            <div class="row gx-5 align-items-center">
-                <div class="col-lg-6">
-                    <div class="containerForm">
-                        <div class="title">Search Specific User</div>
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-4">
+                <div class="containerForm">
+                    <div class="title">Find User</div>
                         <form action="searchUser.php" method="POST">
                             <div class="user-details">
                                 <div class="input-box">
                                     <span class="details">User Name:</span>
-                                    <input type="text" name="name" placeholder="Enter user name">
+                                    <input type="text" name="name" placeholder="Enter user name" required>
                                 </div>
                             </div>
                             <div class="button">
                                 <input type="submit" value="Search">
                             </div>
                         </form>
-                    </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="containerForm">
-                        <div class="title">Search All User</div>
-                        <form action="searchAllUser.php" method="POST">
+            </div>
+            <div class="col-lg-4">
+                <div class="containerForm">
+                    <div class="title">Query All User</div>
+                        <form action="recordAdmin.php" method="POST">
                             <div class="user-details">
                                 <div class="input-box">
                                     <span class="details">User Name:</span>
@@ -78,11 +78,28 @@
                                 <input type="submit" value="Search">
                             </div>
                         </form>
-                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="containerForm">
+                    <div class="title">Add Category</div>
+                        <form action="addCategory.php" method="POST">
+                            <div class="user-details">
+                                <div class="input-box">
+                                    <span class="details">Category:</span>
+                                    <input type="text" name="name" value="Add here" readonly style="border:transparent">
+                                </div>
+                            </div>
+                            <div class="button">
+                                <input type="submit" value="Search">
+                            </div>
+                        </form>
                 </div>
             </div>
         </div>
+    </div>
     </section>
+    
 
     <!-- footer start -->
         <?php
@@ -93,6 +110,5 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS -->
         <script src="assets/js/scripts.js"></script>
-        <script src="assets/js/validation.js"></script>
     </body>
 </html>

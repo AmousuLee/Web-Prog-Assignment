@@ -82,6 +82,41 @@
                                     <a class='btn btn-primary' href='#' role='button'>Reset Password</a>
                                 </div>
                             </div>
+                            <div>
+                            <span class="details">Event Registeraed:</span>
+                            <table class="table table-info table-striped">
+                            <thead>
+                              <tr>
+                                <th scope="col">Range</th>
+                                <th scope="col">Target Size</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Time</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                                $sql = "SELECT TargetRg,TargetSz,Date,Time FROM event e JOIN category c ON e.categoryID=c.categoryID WHERE userID ='$id'";
+                                $query = mysqli_query($conn,$sql);
+                                if((mysqli_num_rows($query))==0){
+                                        echo "</tbody>";
+                                        echo "</table>";
+                                        echo "<p>No Event Registered!</p>";
+                                }else{
+                                    while($row = mysqli_fetch_array($query,MYSQLI_BOTH)){
+                                        echo "<tr>";
+                                            echo "<td>$row[TargetRg] meter</td>";
+                                            echo "<td>$row[TargetSz] centimeter</td>";
+                                            echo "<td>$row[Date]</td>";
+                                            echo "<td>$row[Time]</td>";
+                                        echo "</tr>";
+                                    }
+                                }
+                                
+                                mysqli_close($conn);
+                            ?>
+                            </tbody>
+                            </table>
+                        </div>
                             <div class="button">
                                 <input type="submit" value="Update">
                             </div>
@@ -101,6 +136,5 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS -->
         <script src="assets/js/scripts.js"></script>
-        <script src="assets/js/validation.js"></script>
     </body>
 </html>

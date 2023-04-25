@@ -26,9 +26,7 @@
             exit;
         }
         
-        $conn = new mysqli("127.0.0.1", "root", "", "archeryevent") or die("Connection failed : " . $conn->connect_error);
-        $sql = "SELECT * FROM `event`;";
-        $result = mysqli_query($conn, $sql);
+        include("assets/DB_conn.php");
     ?>
 
     <body>
@@ -38,53 +36,51 @@
         ?>
     <!-- main cont. start -->
     <!-- ! added inline : adjust footer to bottom -->
-        <header class="masthead text-white">
+        <header class="masthead text-white" style="margin-bottom: 10vh">
             <div class="masthead-content">
                 <div class="container px-5">
                     <h1 class="masthead-heading mb-0">Record Page</h1>
                 </div>
             </div>
         </header>
-        <section id="scroll">
-            <div class="container px-5">
-                <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6 order-lg-1">
-                        <div class="p-5">
-                            <table class="table">
-                                <tr>
-                                    <th>registerID</th>
-                                    <th>userID</th>
-                                    <th>Category</th>
-                                </tr>
-                            <?php
-                                while($row = $result->fetch_assoc())
-                                {
-                                    echo
-                                    "<tr>
-                                        <td>" . $row["registerID"] . "</td>" .
-                                        "<td>" . $row["userID"] . "</td>";
 
-                                    if ($row["category"] == 1)
-                                    {
-                                        echo "<td>" . $row["category"] . " - 50 meters at a 80-centimeter target</td></tr>";
+        <section id="scroll">
+            <div class="bodyform">
+                <div class="container px-5">
+                    <table class="table table-light table-striped">
+                                <thead>
+                                <tr>
+                                    <th scope="col">userID</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Password</th>
+                                    <th scope="col">PhoneNo</th>
+                                    <th scope="col">eventID</th>
+                                    <th scope="col">categoryID</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                    $sql = "SELECT * FROM `event` e
+                                            RIGHT OUTER JOIN `user` u 
+                                            ON e.userID=u.userID
+                                            ORDER BY u.userID asc";
+                                    $query = mysqli_query($conn, $sql);
+                                    while($result = mysqli_fetch_array($query,MYSQLI_BOTH)){
+                                        echo "<tr>";
+                                            echo "<td>$result[userID]</td>";
+                                            echo "<td>$result[name]</td>";
+                                            echo "<td>$result[email]</td>";
+                                            echo "<td>$result[password]</td>";
+                                            echo "<td>$result[phoneNo]</td>";
+                                            echo "<td>$result[eventID]</td>";
+                                            echo "<td>$result[categoryID]</td>";
+                                        echo "</tr>";
                                     }
-                                    else if ($row["category"] == 2)
-                                    {
-                                        echo "<td>" . $row["category"] . " - 50 meters at a 122-centimeter target</td></tr>";
-                                    }
-                                    else if ($row["category"] == 3)
-                                    {
-                                        echo "<td>" . $row["category"] . " - 70 meters at a 80-centimeter target</td></tr>";
-                                    }
-                                    else if ($row["category"] == 4)
-                                    {
-                                        echo "<td>" . $row["category"] . " - 70 meters at a 122-centimeter target</td></tr>";
-                                    }
-                                }
-                            ?>
-                            </table>
-                        </div>
-                    </div>
+                                ?>
+                                </tbody>
+                        </table>
+                        <button type="button" class="btn btn-primary" onclick="history.back()" style="background-color: red;">Go Back</button>
                 </div>
             </div>
         </section>
@@ -97,6 +93,5 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS -->
         <script src="assets/js/scripts.js"></script>
-        <script src="assets/js/validation.js"></script>
     </body>
 </html>

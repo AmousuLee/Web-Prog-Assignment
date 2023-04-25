@@ -26,12 +26,6 @@
     <?php
         include ("assets/navbar.php");
         include("assets/DB_conn.php");
-        $var;
-        if(isset($_SESSION['login'])){
-            $var = "t";
-        }else{
-            $var = "f";
-        }
     ?>
 
     <!-- Header -->
@@ -105,7 +99,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS -->
     <script src="assets/js/scripts.js"></script>
-    <script src="assets/js/logged.js"></script>
+
 </body>
 
 </html>

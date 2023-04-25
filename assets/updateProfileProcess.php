@@ -41,7 +41,7 @@
                             WHERE `userID` = '$userID';";
 
                     mysqli_query($conn, $sql);
-                    $conn->close();
+                    mysqli_close($conn);
                     header('Location: ../home_user.php');
                     die();
                 }
@@ -49,7 +49,7 @@
                 // ? return back to profile_user
                 else
                 {
-                    $conn->close();
+                    mysqli_close($conn);
                     header('Location: ../profile_user.php');
                     die();
                 }
@@ -58,7 +58,7 @@
             // ? return back to profile_user
             else
             {
-                $conn->close();
+                mysqli_close($conn);
                 header('Location: ../profile_user.php');
                 die();
             }
