@@ -48,8 +48,6 @@
                             <div class="input-box">
                                 <span class="details">Full Name</span>
                                 <input type="text" name="name" placeholder="Enter your full name"
-                                    pattern="[A-Z][a-z]{1,}\s[A-Z][a-z]{1,}$"
-                                    title="Must contain full name e.g. John Doe"
                                 required>
                             </div>
                             <div class="input-box">
