@@ -1,0 +1,65 @@
+
+
+.container_cd {
+  margin: 0px auto;
+  padding: 0px;
+}
+
+#main_cd { 
+  background: #3B3B3B;
+  height: 430px;
+}
+
+.content_cd {
+  padding: 10px 44px;
+}
+
+.text_cd {
+  border-bottom: 1px solid #262626;
+  margin-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+.text_cd h2 {
+  color: #E5E5E5;
+  font-size: 30px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: lighter;
+  letter-spacing: 2px;
+}
+
+.counter {
+  background: white;
+  -moz-box-shadow:    inset 0 0 5px #000000;
+  -webkit-box-shadow: inset 0 0 5px #000000;
+  box-shadow:         inset 0 0 5px #000000;
+  min-height: 150px;
+  text-align: center;
+}
+
+.counter h3 {
+  color: black;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  letter-spacing: 1px;
+  padding-top: 20px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+#countdown {
+  color: black;
+}
+
+#countdown span {
+  color: black;
+  font-size: 26px;
+  font-weight: normal;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+}
