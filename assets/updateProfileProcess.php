@@ -1,19 +1,15 @@
-<?php session_start(); ?>
-<html>
-    <head>
-    </head>
-    <body>
+
+
         <?php
             $name = $_POST["name"];
             $email = $_POST["email"];
-            $password = $_POST["password"];
             $phoneNo = $_POST["phoneNo"];
 
             include("DB_conn.php");
 
             // ! check EITHER if non-null val is set
             // ? should be short-circut since $name is always set from form
-            if(isset($name) || isset($email) || isset($password))
+            if(isset($name) || isset($email))
             {
                 // check in db for existing name
                 $sql = "SELECT * FROM `user`
@@ -41,12 +37,11 @@
                     
                     $sql = "UPDATE `user`
                             SET `email` = '$email',
-                                `password` = '$password',
                                 `phoneNo` = '$phoneNo'
                             WHERE `userID` = '$userID';";
 
                     mysqli_query($conn, $sql);
-                    
+                    $conn->close();
                     header('Location: ../home_user.php');
                     die();
                 }
@@ -54,6 +49,7 @@
                 // ? return back to profile_user
                 else
                 {
+                    $conn->close();
                     header('Location: ../profile_user.php');
                     die();
                 }
@@ -62,11 +58,9 @@
             // ? return back to profile_user
             else
             {
+                $conn->close();
                 header('Location: ../profile_user.php');
                 die();
             }
 
-            $conn->close();
         ?>
-    </body>
-</html>

@@ -45,18 +45,12 @@
                     <form class="loginAdmin" action="assets/loginAdminProcess.php" method="POST">
                         <div class="user-details">
                             <div class="input-box">
-                                <span class="details">Email</span>
-                                <input type="text" name="email" placeholder="Enter your email"
-                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                                    title="Must contain standard format : johndoe@mail.com"
-                                required>
+                                <span class="details">Username</span>
+                                <input type="text" name="email" placeholder="Enter your email" required>
                             </div>
                             <div class="input-box">
                                 <span class="details">Password</span>
-                                <input type="password" name="password" placeholder="Enter your Password"
-                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
-                                required>
+                                <input type="password" name="password" placeholder="Enter your Password" required>
                             </div>
                         </div>
                         <div class="button">
