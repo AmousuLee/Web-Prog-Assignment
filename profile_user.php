@@ -62,8 +62,6 @@
                                 <div class="input-box">
                                     <span class="details">Full Name</span>
                                     <input type="text" name="name" value="<?php echo $row["name"]; ?>"
-                                        readonly
-                                        title="You cannot change your name, right? :troll:"
                                     >
                                 </div>
                                 <div class="input-box">

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Admin Page</title>
+        <title>User Page</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -19,23 +19,13 @@
         <link href="assets/css/userSearch.css" rel="stylesheet" />
     </head>
 
-    <?php
-
-        // check if sess. var is set ; else return to login
-        if (!isset($_SESSION["login"]) && $_SESSION["login"] != "admin") {
-            header('Location: index.php');
-            exit;
-        }
-    ?>
 
     <body>
-    <!-- navbar start : for admin -->
+    <!-- navbar start : for user -->
         <?php
             include("assets/navbar.php");
         ?>
-    <!-- main cont. start -->
-    <!-- ! added inline : adjust footer to bottom -->
-        <header class="masthead text-white" style="margin-bottom: 28vh">
+                <header class="masthead text-white" style="margin-bottom: 28vh">
             <div class="masthead-content">
                 <div class="container px-5">
                     <h1 class="masthead-heading mb-0">Home Page</h1>
@@ -44,28 +34,67 @@
             </div>
         </header>
 
-        <section id="scroll">
+    <!-- main cont. start -->
+    <?php   
+        $name = $_POST["name"];
+
+    include("assets/DB_conn.php");
+
+    $sql = "SELECT * FROM `user` WHERE `name` = '$name';";
+    $result = mysqli_query($conn, $sql); 
+    $row=mysqli_fetch_array($result,MYSQLI_BOTH);
+
+    if($name == $row[1]){
+
+        $password=$row[3];
+        $email=$row[2];
+        $id = $row[0];
+        $phoneNo = $row[4]
+    ?>
+    <section id="scroll">
         <div class="bodyform">
             <div class="container px-5">
                 <div class="containerForm">
-                    <div class="title">Search User</div>
-                    <form class="searchUser" action="searchUser.php" method="POST">
+                    <div class="title">User Details</div>
+                    <form class="loginuser" action="assets/deleteUser.php" method="POST">
                         <div class="user-details">
+                        <div class="input-box">
+                                <span class="details">User ID:</span>
+                                <input type="text" id="name" name="id" value="<?php echo $id ?>"readonly>
+                            </div>
                             <div class="input-box">
-                                <span class="details">User Name:</span>
-                                <input type="text" name="name" placeholder="Enter user name">
+                                <span class="details">User name:</span>
+                                <input type="text" id="name" name="name" value="<?php echo $name ?>"readonly>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Email:</span>
+                                <input type="text" id="name" name="email" value="<?php echo $email ?>"readonly>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Password:</span>
+                                <input type="text" id="name" name="password" value="<?php echo $password ?>"readonly>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Contact:</span>
+                                <input type="text" id="name" name="password" value="<?php echo $phoneNo ?>"readonly>
                             </div>
                         </div>
                         <div class="button">
-                            <input type="submit" value="Search">
+                            <input type="submit" value="Delete">
+                        </div>
                         </div>
                     </form>
-                    
                 </div>
-            </div>
-            
+            </div>  
         </div>
-    </section>
+</section>
+<?php
+    }
+    else{
+        echo"Username not exist.";
+        header('Location: home_admin.php');
+        die();
+    } ?>
 
     <!-- footer start -->
         <?php
