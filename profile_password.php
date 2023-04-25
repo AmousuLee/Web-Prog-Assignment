@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>User Profile</title>
+        <title>Change Password</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -47,7 +47,7 @@
         <header class="masthead text-white">
             <div class="masthead-content">
                 <div class="container px-5">
-                    <h1 class="masthead-heading mb-0">User Profile</h1>
+                    <h1 class="masthead-heading mb-0">Reset Password</h1>
                 </div>
             </div>
         </header>
@@ -56,37 +56,25 @@
             <div class="bodyform">
                 <div class="container px-5">
                     <div class="containerForm">
-                        <div class="titleProfile">Update your profile here!</div>
+                        <div class="titleProfile">Reset Password</div>
                         <form class="registerUser" action="assets/updateProfileProcess.php" method="POST" onsubmit="return passwordValidation()">
                             <div class="user-details">
                                 <div class="input-box">
-                                    <span class="details">Full Name</span>
-<<<<<<< HEAD
-                                    <input type="text" name="name" value="<?php echo $row["name"]; ?>"
-                                    >
-=======
-                                    <input type="text" readonly style="border:transparent" name="name" value="<?php echo $row['name']; ?>">
->>>>>>> 1739e4083b9af4b718ec16c0a0fc6b2249508155
-                                </div>
-                                <div class="input-box">
-                                    <span class="details">Email</span>
-                                    <input type="email" name="email" value="<?php echo $row['email']; ?>"
-                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                                        title="Must contain standard format : johndoe@mail.com"
-                                    >
-                                </div>
-                                <div class="input-box">
-                                    <span class="details">Phone number <span>*(not necessary)</span></span>
-                                    <input type="text" name="phoneNo" value="<?php if($row['phoneNo'] != ''){ echo $row['phoneNo'];}?>" placeholder="Enter your phone no."
-                                        pattern="\d{10,11}"
-                                        title="Must contain 10/11 characters (Do not include +60)" 
-                                    >
-                                </div>
-                                <div class="input-box">
                                     <span class="details">Password</span>
-                                    <a class='btn btn-primary' href='#' role='button'>Reset Password</a>
+                                    <input type="password" name="password" id="P" placeholder="Enter your old password"
+                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
+                                    required>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Confirm Password</span>
+                                    <input type="password" name="CP" id="CP" placeholder="Confirm your new password" 
+                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
+                                    required>
                                 </div>
                             </div>
+                               
                             <div class="button">
                                 <input type="submit" value="Update">
                             </div>
@@ -96,6 +84,8 @@
                 </div>
             </div>
         </section>
+
+       
 
     <!-- footer start -->
         <?php
