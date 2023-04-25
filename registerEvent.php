@@ -57,6 +57,7 @@
                                 <th scope="col">Target Size</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Time</th>
+                                <th scope="col">Capacity</th>
                                 <th scope="col">Register</th>
                               </tr>
                             </thead>
@@ -66,13 +67,21 @@
                                 $query = mysqli_query($conn,$sql);
                                 $i = 0;
                                 while($result = mysqli_fetch_array($query,MYSQLI_NUM)){
+                                    $sql2 = "SELECT * FROM event WHERE categoryID = $result[0]";
+                                    $left_result = mysqli_query($conn,$sql2);
+                                    $left = $result[5]-mysqli_num_rows($left_result);
                                     echo "<tr>";
                                         echo "<th scope='row'>".++$i."</th>";
                                         echo "<td>$result[1] meter</td>";
                                         echo "<td>$result[2] centimeter</td>";
                                         echo "<td>$result[3]</td>";
-                                        echo "<td>$result[4]";
-                                        echo "<td><a class='btn btn-primary btn-sm' href='assets/registerEventProcess.php?id=".$result[0]."' role='button'>Register</a>";
+                                        echo "<td>$result[4]</td>";
+                                        echo "<td>"."$left/$result[5]"."</td>";
+                                        if($left==0){
+                                            echo "<td><a class='btn btn-primary btn-sm disabled' href='#' role='button'>Full</a></td>";
+                                        }else{
+                                            echo "<td><a class='btn btn-primary btn-sm' href='assets/registerEventProcess.php?id=".$result[0]."' role='button'>Register</a></td>";
+                                        }
                                     echo "</tr>";
                                 }
                             ?>
