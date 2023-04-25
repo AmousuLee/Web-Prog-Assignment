@@ -35,7 +35,7 @@
 
 
             $conn->close();
-            header('Location: ../home_user.php');
+            header('Location: ../index.php');
             die();
         }
         // else if result is 0, did not found user

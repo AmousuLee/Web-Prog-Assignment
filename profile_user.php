@@ -30,7 +30,7 @@
         else
         {
             $email = $_SESSION['email'];
-            include("DB_conn.php");
+            include("./assets/DB_conn.php");
 
             $sql = "SELECT * FROM `user` WHERE `email` = '$email';";
             $result = mysqli_query($conn, $sql);
@@ -61,38 +61,25 @@
                             <div class="user-details">
                                 <div class="input-box">
                                     <span class="details">Full Name</span>
-                                    <input type="text" name="name" value="<?php echo $row["name"]; ?>"
-                                        readonly
-                                        title="You cannot change your name, right? :troll:"
-                                    >
+                                    <input type="text" readonly style="border:transparent" name="name" value="<?php echo $row['name']; ?>">
                                 </div>
                                 <div class="input-box">
                                     <span class="details">Email</span>
-                                    <input type="email" name="email" placeholder="<?php echo $row["email"]; ?>"
+                                    <input type="email" name="email" value="<?php echo $row['email']; ?>"
                                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                                         title="Must contain standard format : johndoe@mail.com"
                                     >
                                 </div>
                                 <div class="input-box">
-                                    <span class="details">Password</span>
-                                    <input type="password" name="password" id="P" placeholder="Enter your new password"
-                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
-                                    required>
-                                </div>
-                                <div class="input-box">
-                                    <span class="details">Confirm Password</span>
-                                    <input type="password" name="CP" id="CP" placeholder="Confirm your new password" 
-                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
-                                    required>
-                                </div>
-                                <div class="input-box">
                                     <span class="details">Phone number <span>*(not necessary)</span></span>
-                                    <input type="text" name="phoneNo" placeholder="<?php if($row["phoneNo"] == "") { echo "Enter your phone no.";} else { echo $row["phoneNo"];}?>"
+                                    <input type="text" name="phoneNo" value="<?php if($row['phoneNo'] != ''){ echo $row['phoneNo'];}?>" placeholder="Enter your phone no."
                                         pattern="\d{10,11}"
                                         title="Must contain 10/11 characters (Do not include +60)" 
                                     >
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Password</span>
+                                    <a class='btn btn-primary' href='#' role='button'>Reset Password</a>
                                 </div>
                             </div>
                             <div class="button">
@@ -100,6 +87,7 @@
                             </div>
                         </form>
                     </div>
+                    
                 </div>
             </div>
         </section>
