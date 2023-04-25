@@ -77,7 +77,7 @@
                                         echo "<td>$result[3]</td>";
                                         echo "<td>$result[4]</td>";
                                         echo "<td>"."$left/$result[5]"."</td>";
-                                        if($left==0){
+                                        if($left<=0){
                                             echo "<td><a class='btn btn-primary btn-sm disabled' href='#' role='button'>Full</a></td>";
                                         }else{
                                             echo "<td><a class='btn btn-primary btn-sm' href='assets/registerEventProcess.php?id=".$result[0]."' role='button'>Register</a></td>";
@@ -94,45 +94,7 @@
     </section>
     <!-- Event registration form -->
     <!-- //! input validation is done on input pattern-title -->
-    <section>
-        <div class="bodyform">
-            <div class="container px-5">
-                <div class="containerForm">
-                    <div class="titleReg">Registration</div>
-                    <form class="registerUser" action="assets/registerEventProcess.php" method="POST" style="padding-top: 20px;" onsubmit="return loggedAsUser('<?php echo $var ?>')">
-                        <div class="category-details">
-                            <input type="radio" name="category" id="dot-1" value="1">
-                            <input type="radio" name="category" id="dot-2" value="2">
-                            <input type="radio" name="category" id="dot-3" value="3">
-                            <input type="radio" name="category" id="dot-4" value="4">
-                            <span class="category-title">Event Category</span>
-                            <div class="category">
-                                <label for="dot-1">
-                                    <span class="dot one"></span>
-                                    <span class="category-detail-desc">50 meters at a 80-centimeter target</span>
-                                </label>
-                                <label for="dot-2">
-                                    <span class="dot two"></span>
-                                    <span class="category-detail-desc">50 meters at a 122-centimeter target</span>
-                                </label>
-                                <label for="dot-3">
-                                    <span class="dot three"></span>
-                                    <span class="category-detail-desc">70 meters at a 80-centimeter target</span>
-                                </label>
-                                <label for="dot-4">
-                                    <span class="dot four"></span>
-                                    <span class="category-detail-desc">70 meters at a 122-centimeter target</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="button">
-                            <input type="submit" value="Register for event">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+   
 
     <!-- Footer -->
     <?php
