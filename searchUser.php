@@ -17,9 +17,13 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="assets/css/styles.css" rel="stylesheet" />
         <link href="assets/css/userSearch.css" rel="stylesheet" />
+        <script>
+        function badUser(){
+            alert("Name Doesn't Exist!");
+            window.location = './home_admin.php';
+        }
+    </script>
     </head>
-
-
     <body>
     <!-- navbar start : for user -->
         <?php
@@ -44,12 +48,11 @@
     $result = mysqli_query($conn, $sql); 
     $row=mysqli_fetch_array($result,MYSQLI_BOTH);
 
-    if($name == $row[1]){
-
-        $password=$row[3];
-        $email=$row[2];
-        $id = $row[0];
-        $phoneNo = $row[4]
+    if($name == $row['name']){
+        $id = $row['userID'];
+        $email = $row['email'];
+        $password = $row['password'];
+        $phoneNo = $row['phoneNo']
     ?>
     <section id="scroll">
         <div class="bodyform">
@@ -75,12 +78,48 @@
                                 <input type="text" id="name" name="password" value="<?php echo $password ?>"readonly>
                             </div>
                             <div class="input-box">
-                                <span class="details">Contact:</span>
+                                <span class="details">Phone Number:</span>
                                 <input type="text" id="name" name="password" value="<?php echo $phoneNo ?>"readonly>
                             </div>
                         </div>
+                        <div>
+                            <span class="details">Event Registered:</span>
+                            <table class="table table-info table-striped">
+                            <thead>
+                              <tr>
+                                <th scope="col">Range</th>
+                                <th scope="col">Target Size</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Time</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                                $sql = "SELECT TargetRg,TargetSz,Date,Time FROM event e JOIN category c ON e.categoryID=c.categoryID WHERE userID ='$id'";
+                                $query = mysqli_query($conn,$sql);
+                                if((mysqli_num_rows($query))==0){
+                                        echo "</tbody>";
+                                        echo "</table>";
+                                        echo "<p>No Event Registered!</p>";
+                                }else{
+                                    while($row = mysqli_fetch_array($query,MYSQLI_BOTH)){
+                                        echo "<tr>";
+                                            echo "<td>$row[TargetRg] meter</td>";
+                                            echo "<td>$row[TargetSz] centimeter</td>";
+                                            echo "<td>$row[Date]</td>";
+                                            echo "<td>$row[Time]</td>";
+                                        echo "</tr>";
+                                    }
+                                }  
+                            ?>
+                            </tbody>
+                            </table>
+                        </div>
                         <div class="button">
                             <input type="submit" value="Delete">
+                        </div>
+                        <div class="button red">
+                            <input type="button" value="Go back!" onclick="history.back()" style="background-color: red;">
                         </div>
                         </div>
                     </form>
@@ -91,8 +130,7 @@
 <?php
     }
     else{
-        echo"Username not exist.";
-        header('Location: home_admin.php');
+        echo "<script>badUser()</script>";
         die();
     } ?>
 
@@ -102,7 +140,7 @@
         ?>
 
         <!-- Bootstrap core JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></scrip>
         <!-- Core theme JS -->
         <script src="assets/js/scripts.js"></script>
         <script src="assets/js/validation.js"></script>

@@ -44,26 +44,43 @@
             </div>
         </header>
 
-        <section id="scroll">
-        <div class="bodyform">
-            <div class="container px-5">
-                <div class="containerForm">
-                    <div class="title">Search User</div>
-                    <form class="searchUser" action="searchUser.php" method="POST">
-                        <div class="user-details">
-                            <div class="input-box">
-                                <span class="details">User Name:</span>
-                                <input type="text" name="name" placeholder="Enter user name">
+       
+        <section>
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="containerForm">
+                        <div class="title">Search Specific User</div>
+                        <form action="searchUser.php" method="POST">
+                            <div class="user-details">
+                                <div class="input-box">
+                                    <span class="details">User Name:</span>
+                                    <input type="text" name="name" placeholder="Enter user name">
+                                </div>
                             </div>
-                        </div>
-                        <div class="button">
-                            <input type="submit" value="Search">
-                        </div>
-                    </form>
-                    
+                            <div class="button">
+                                <input type="submit" value="Search">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="containerForm">
+                        <div class="title">Search All User</div>
+                        <form action="searchAllUser.php" method="POST">
+                            <div class="user-details">
+                                <div class="input-box">
+                                    <span class="details">User Name:</span>
+                                    <input type="text" name="name" value="All Members" readonly style="border:transparent">
+                                </div>
+                            </div>
+                            <div class="button">
+                                <input type="submit" value="Search">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-            
         </div>
     </section>
 

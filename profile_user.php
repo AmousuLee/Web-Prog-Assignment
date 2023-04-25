@@ -61,12 +61,7 @@
                             <div class="user-details">
                                 <div class="input-box">
                                     <span class="details">Full Name</span>
-<<<<<<< HEAD
-                                    <input type="text" name="name" value="<?php echo $row["name"]; ?>"
-                                    >
-=======
                                     <input type="text" readonly style="border:transparent" name="name" value="<?php echo $row['name']; ?>">
->>>>>>> 1739e4083b9af4b718ec16c0a0fc6b2249508155
                                 </div>
                                 <div class="input-box">
                                     <span class="details">Email</span>
