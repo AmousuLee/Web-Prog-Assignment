@@ -54,10 +54,7 @@
                             </div>
                             <div class="input-box">
                                 <span class="details">Password</span>
-                                <input type="password" name="password" placeholder="Enter your Password"
-                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                                required>
+                                <input type="password" name="password" placeholder="Enter your Password" required>
                             </div>
                         </div>
                         <div class="button">
