@@ -6,7 +6,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>User Page</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -15,19 +15,14 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
             rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="assets/css/styles.css" rel="stylesheet" />
-        <link href="assets/css/userSearch.css" rel="stylesheet" />
-        <script>
-        function badUser(){
-            alert("Name Doesn't Exist!");
-            window.location = './home_admin.php';
-        }
-    </script>
+        <link href="../assets/css/styles.css" rel="stylesheet" />
+        <link href="../assets/css/userSearch.css" rel="stylesheet" />
+        <script src="../assets/js/alertmsg.js"></script>
     </head>
     <body>
     <!-- navbar start : for user -->
         <?php
-            include("assets/navbar.php");
+            include("../assets/navbar.php");
         ?>
                 <header class="masthead text-white" style="margin-bottom: 10vh">
             <div class="masthead-content">
@@ -41,7 +36,7 @@
     <?php   
         $name = $_POST["name"];
 
-    include("assets/DB_conn.php");
+    include("../assets/DB_conn.php");
 
     $sql = "SELECT * FROM `user` WHERE `name` = '$name';";
     $result = mysqli_query($conn, $sql); 
@@ -59,7 +54,7 @@
             <div class="container px-5">
                 <div class="containerForm">
                     <div class="title">User Details</div>
-                    <form class="loginuser" action="assets/deleteUser.php" method="POST">
+                    <form class="loginuser" action="../assets/deleteUser.php" method="POST">
                         <div class="user-details">
                         <div class="input-box">
                                 <span class="details">User ID:</span>
@@ -134,18 +129,18 @@
     }
     else{
         mysqli_close($conn);
-        echo "<script>badUser()</script>";
+        echo "<script>badUserSearchAdmin()</script>";
         die();
     } ?>
 
     <!-- footer start -->
         <?php
-            include("assets/footer.html");
+            include("../assets/footer.html");
         ?>
 
         <!-- Bootstrap core JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></scrip>
         <!-- Core theme JS -->
-        <script src="assets/js/scripts.js"></script>
+        <script src="../assets/js/scripts.js"></script>
     </body>
 </html>

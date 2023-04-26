@@ -1,26 +1,10 @@
-<script>
-    function badReg(){
-        alert("Similiar category already exist!");
-        window.location = '../home_admin.php';
-    }
-    function successReg(){
-        alert("Category successfully added!");
-        window.location = '../home_admin.php';
-    }   
-    function badInput(){
-        alert("Input Form Not Complete!");
-        window.location = '../home_admin.php';
-    }   
-</script>
-
 <?php
+    echo '<script type="text/JavaScript" src="../assets/js/alertmsg.js"></script>';
     $range = $_POST["range"];
     $target = $_POST["target"];
     $date = $_POST["date"];
     $time = $_POST["timeStart"] ." - ". $_POST["timeEnd"];
     $capacity = $_POST["capacity"];
-
-    echo "$time";
 
     include("DB_conn.php");
 
@@ -46,7 +30,7 @@
 
             mysqli_query($conn, $sql);
             mysqli_close($conn);
-            echo "<script>successReg()</script>";
+            echo "<script>successCategoryAdded()</script>";
             die();
         }
         // else if result more than 0, conflict with existing users
@@ -54,7 +38,7 @@
         else
         {
             mysqli_close($conn);
-            echo "<script>badReg()</script>";
+            echo "<script>badCategoryAdded()</script>";
             die();
         }
     }

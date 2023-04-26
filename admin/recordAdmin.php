@@ -6,7 +6,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Admin's Record Page</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -15,24 +15,24 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
             rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="assets/css/styles.css" rel="stylesheet" />
+        <link href="../assets/css/styles.css" rel="stylesheet" />
     </head>
 
     <?php
 
         // check if sess. var is set ; else return to login
         if (!isset($_SESSION["login"]) && $_SESSION["login"] != "admin") {
-            header('Location: index.php');
+            header('Location: ../index.php');
             exit;
         }
         
-        include("assets/DB_conn.php");
+        include("../assets/DB_conn.php");
     ?>
 
     <body>
     <!-- navbar start : for admin -->
         <?php
-            include("assets/navbar.php");
+            include("../assets/navbar.php");
         ?>
     <!-- main cont. start -->
     <!-- ! added inline : adjust footer to bottom -->
@@ -89,12 +89,12 @@
         </section>
     <!-- footer start -->
         <?php
-            include("assets/footer.html");
+            include("../assets/footer.html");
         ?>
 
         <!-- Bootstrap core JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS -->
-        <script src="assets/js/scripts.js"></script>
+        <script src="../assets/js/scripts.js"></script>
     </body>
 </html>

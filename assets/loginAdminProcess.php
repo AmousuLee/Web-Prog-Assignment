@@ -1,12 +1,6 @@
-<script>
-    function badUser(){
-        alert("Incorrect Username or Password. Please try again!");
-        window.location = '../loginAdmin.php';
-    }
-</script>
-
 <?php
-    session_start();
+    echo "<script src='../assets/js/alertmsg.js'></script>";
+    
     $email = $_POST["email"];
     $password = $_POST["password"];
 
@@ -27,13 +21,13 @@
         if ($result->num_rows > 0)
         {
             $row = $result->fetch_assoc();
-            
+            session_start();
             $_SESSION["adminID"] = $row["adminID"];
             $_SESSION["email"] = $row["email"];
             $_SESSION["login"] = "admin";
             
             $conn->close();
-            header('Location: ../home_admin.php');
+            header('Location: ../admin/home_admin.php');
             die();
         }
         // else if result is 0, did not found user
@@ -41,7 +35,7 @@
         else
         {
             $conn->close();
-            echo "<script>badUser()</script>";
+            echo "<script>badAdminlogin()</script>";
             die();
         }
     }
@@ -50,7 +44,7 @@
     else
     {
         $conn->close();
-        header('Location: ../loginAdmin.php');
+        echo "<script>badAdminInput()</script>";
         die();
     }
 ?>
