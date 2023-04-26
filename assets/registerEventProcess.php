@@ -1,34 +1,7 @@
-<script>
-    function badUser(){
-        alert("Name Doesn't Exist.");
-        window.location = '../registerEvent.php';
-    }
-
-    function successMsg(){
-        alert("You have successfully register for the event!")
-        window.location = '../registerEvent.php';
-    }
-
-    function noCategory(){
-        alert("Please select one of the category!")
-        window.location = '../registerEvent.php';
-    }
-
-    function notLogin(){
-        alert("Look Like you haven't login yet. Please login/register to join the event!")
-        window.location = '../login.php';
-    }
-
-    function alreadyReg(){
-        alert("You already registered to this event!")
-        window.location = '../registerEvent.php';
-    }
-
-
-</script>
-
 <?php
     session_start();
+    echo "<script src='../assets/js/alertmsg.js'></script>";
+
     if (!isset($_SESSION["login"]) && $_SESSION["login"] != "user") {
         echo "<script>notLogin()</script>";
         exit;
@@ -57,8 +30,7 @@
             $userID = $row["userID"];
 
             $sql = "SELECT eventID FROM `event`
-                    WHERE `userID`='$userID'
-                    AND `categoryID`='$category'";
+                    WHERE `userID`='$userID'";
             $result = mysqli_query($conn, $sql);
 
             //if user havent register the category
@@ -67,11 +39,11 @@
                         VALUES ('$userID', '$category');";
                 mysqli_query($conn, $sql);
                 $conn->close();
-                echo "<script>successMsg()</script>";
+                echo "<script>successUserRegisterEvent()</script>";
                 die();
             }else{
                 $conn->close();
-                echo "<script>alreadyReg()</script>";
+                echo "<script>failUserAlreadyReg()</script>";
                 die();
             }            
         }
@@ -80,7 +52,7 @@
         else
         {
             $conn->close();
-            echo "<script>badUser()</script>";
+            echo "<script>badUserEventUsername()</script>";
             die();
         }
     }
