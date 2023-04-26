@@ -47,7 +47,11 @@
         <section id="scroll">
             <div class="bodyform">
                 <div class="container px-5">
-                    <table class="table table-light table-striped">
+                        <div class="d-grid gap-2">
+                            <button type="button" class="btn btn-primary" onclick="history.back()" style="background-color: red;">Go Back</button>
+                        </div>
+                        <br>
+                        <table class="table table-light table-striped">
                                 <thead>
                                 <tr>
                                     <th scope="col">userID</th>
@@ -80,7 +84,6 @@
                                 ?>
                                 </tbody>
                         </table>
-                        <button type="button" class="btn btn-primary" onclick="history.back()" style="background-color: red;">Go Back</button>
                 </div>
             </div>
         </section>
