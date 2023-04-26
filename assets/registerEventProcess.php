@@ -6,6 +6,7 @@
 
     function successMsg(){
         alert("You have successfully register for the event!")
+        window.location = '../registerEvent.php';
     }
 
     function noCategory(){
@@ -18,6 +19,12 @@
         window.location = '../login.php';
     }
 
+    function alreadyReg(){
+        alert("You already registered to this event!")
+        window.location = '../registerEvent.php';
+    }
+
+
 </script>
 
 <?php
@@ -27,7 +34,7 @@
         exit;
     }
 
-    $category = $_POST["category"];
+    $category = $_GET["category"];
     $name = $_SESSION["name"];
     
 
@@ -49,13 +56,24 @@
             $row = $result->fetch_assoc();
             $userID = $row["userID"];
 
-            $sql = "INSERT INTO `event` (`userID`, `category`)
-                    VALUES ('$userID', '$category');";
+            $sql = "SELECT eventID FROM `event`
+                    WHERE `userID`='$userID'
+                    AND `categoryID`='$category'";
+            $result = mysqli_query($conn, $sql);
 
-            mysqli_query($conn, $sql);
-            $conn->close();
-            echo "<script>successMsg()</script>";
-            die();
+            //if user havent register the category
+            if($result->num_rows < 1){
+                $sql = "INSERT INTO `event` (`userID`, `categoryID`)
+                        VALUES ('$userID', '$category');";
+                mysqli_query($conn, $sql);
+                $conn->close();
+                echo "<script>successMsg()</script>";
+                die();
+            }else{
+                $conn->close();
+                echo "<script>alreadyReg()</script>";
+                die();
+            }            
         }
         // else if result is 0, did not found user
         // ? return back to registerEvent

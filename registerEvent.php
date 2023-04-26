@@ -74,7 +74,7 @@
                                         if($left<=0){
                                             echo "<td><a class='btn btn-primary btn-sm disabled' href='#' role='button'>Full</a></td>";
                                         }else{
-                                            echo "<td><a class='btn btn-primary btn-sm' href='assets/registerEventProcess.php?id=".$result[0]."' role='button'>Register</a></td>";
+                                            echo "<td><a class='btn btn-primary btn-sm' href='assets/registerEventProcess.php?category=".$result[0]."' role='button'>Register</a></td>";
                                         }
                                     echo "</tr>";
                                 }

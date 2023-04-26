@@ -1,5 +1,20 @@
-
-
+<html>
+<head>
+    <script>
+        function success(){
+            alert("Your profile has been succesfully updated!");
+            window.location = './profile_user.php';
+        }
+        function badUser(){
+            alert("Conflicting user detected!");
+            window.location = './profile_user.php';
+        }
+        function badInput(){
+            alert("Input Not Complete!");
+            window.location = './profile_user.php';
+        }
+    </script>
+</head>
         <?php
             $name = $_POST["name"];
             $email = $_POST["email"];
@@ -42,7 +57,7 @@
 
                     mysqli_query($conn, $sql);
                     mysqli_close($conn);
-                    header('Location: ../home_user.php');
+                    echo"<script>success()</script>";
                     die();
                 }
                 // else if result more than 0, conflict with existing users
@@ -50,7 +65,7 @@
                 else
                 {
                     mysqli_close($conn);
-                    header('Location: ../profile_user.php');
+                    echo"<script>badUser()</script>";
                     die();
                 }
             }
@@ -59,8 +74,9 @@
             else
             {
                 mysqli_close($conn);
-                header('Location: ../profile_user.php');
+                echo"<script>badInput()</script>";
                 die();
             }
 
         ?>
+</html>

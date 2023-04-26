@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="input-box">
                                     <span class="details">Phone number <span>*(not necessary)</span></span>
-                                    <input type="text" name="phoneNo" value="<?php if($row['phoneNo'] != ''){ echo $row['phoneNo'];}?>" placeholder="Enter your phone no."
+                                    <input type="text" name="phoneNo" value="<?php if($row['phoneNo'] != ''){ echo $row['phoneNo'];}?>" placeholder="exp. 0123334444"
                                         pattern="\d{10,11}"
                                         title="Must contain 10/11 characters (Do not include +60)" 
                                     >
@@ -83,7 +83,7 @@
                                 </div>
                             </div>
                             <div>
-                            <span class="details">Event Registeraed:</span>
+                            <span class="details">Event Registered:</span>
                             <table class="table table-info table-striped">
                             <thead>
                               <tr>
@@ -91,11 +91,12 @@
                                 <th scope="col">Target Size</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Time</th>
+                                <th scope="col">Unregistered?</th>
                               </tr>
                             </thead>
                             <tbody>
                             <?php
-                                $sql = "SELECT TargetRg,TargetSz,Date,Time FROM event e JOIN category c ON e.categoryID=c.categoryID WHERE userID ='$id'";
+                                $sql = "SELECT eventID,TargetRg,TargetSz,Date,Time FROM event e JOIN category c ON e.categoryID=c.categoryID WHERE userID ='$row[userID]'";
                                 $query = mysqli_query($conn,$sql);
                                 if((mysqli_num_rows($query))==0){
                                         echo "</tbody>";
@@ -108,6 +109,7 @@
                                             echo "<td>$row[TargetSz] centimeter</td>";
                                             echo "<td>$row[Date]</td>";
                                             echo "<td>$row[Time]</td>";
+                                            echo "<td><a class='btn btn-primary btn-sm' href='assets/deleteEventRegisteredProcess.php?event="."$row[eventID]"."' role='button' style='background-color:red'>Delete</a></td>";
                                         echo "</tr>";
                                     }
                                 }
