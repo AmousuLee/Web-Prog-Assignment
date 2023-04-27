@@ -29,28 +29,28 @@ function failRemovedRegisteredEvent(){
 /*Admin Search */
 function badUserSearchAdmin(){
     alert("Name Doesn't Exist!");
-    window.location = '../home_admin.php';
+    window.location = 'home_admin.php';
 }
 
 /*Admin Login */
 function badAdminLogin(){
     alert("Incorrect Username or Password. Please try again!");
-    window.location = '../admin/loginAdmin.php';
+    window.location = '../loginAdmin.php';
 }
 
 function badAdminInput(){
     alert("Input Form Not Complete!");
-    window.location = '../admin/loginAdmin.php';
+    window.location = '../loginAdmin.php';
 }  
 
 /*Admin delete user */
 function adminDeleteUserSuccess(){
     alert("User Successfully Removed!");
-    window.location = '../admin/home_admin.php';
+    window.location = '../home_admin.php';
 }
 function adminDeleteUserFail(){
     alert("Remove Failed!");
-    window.location = '../admin/home_admin.php';
+    window.location = './home_admin.php';
 }
 
 /*User Register Event */
@@ -77,4 +77,31 @@ function notLogin(){
 function failUserAlreadyReg(){
     alert("You already registered for an event! You only can join 1 event.")
     window.location = '../registerEvent.php';
+}
+
+/*Log out */
+function logout(){
+    alert("You have successfully logout.")
+    window.location = '../index.php';
+}
+
+/*Password and Profile Reset */
+function successPasswordReset(){
+    alert("You have successfully change your password.")
+    window.location = '../profile_user.php';
+}
+
+function failFormIncomplete(){
+    alert("Please fill in the form properly.")
+    window.location = '../profile_user.php';
+}
+
+function failUserNotFound(){
+    alert("Username not found.Contact the admin for support!")
+    window.location = '../profile_user.php';
+}
+
+function successProfileUpdate(){
+    alert("Your profile has been succesfully updated!");
+    window.location = '../profile_user.php';
 }

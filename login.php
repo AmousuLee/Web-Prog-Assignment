@@ -67,7 +67,7 @@
                         </div>
                     </form>
                     <center>
-                        <a href="loginAdmin.php" >Login as admin</a>
+                        <a href="./loginAdmin.php" style="color:white" >Login as admin</a>
                     </center>
                     
                 </div>

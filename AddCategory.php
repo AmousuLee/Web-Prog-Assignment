@@ -7,7 +7,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Event Registration</title>
-    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -16,16 +16,16 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
         rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../assets/css/styles.css" rel="stylesheet" />
-    <link href="../assets/css/loginReg.css" rel="stylesheet" />
+    <link href="./assets/css/styles.css" rel="stylesheet" />
+    <link href="./assets/css/loginReg.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
 
     <!-- Navbar -->
     <?php
-        include ("../assets/navbar.php");
-        include("../assets/DB_conn.php");
+        include ("./assets/navbar.php");
+        include("./assets/DB_conn.php");
     ?>
 
     <!-- Header -->
@@ -85,7 +85,7 @@
             <div class="container px-5">
                 <div class="containerForm">
                     <div class="title">Category Details</div>
-                    <form class="loginuser" action="../assets/addCategoryProcess.php" method="POST">
+                    <form class="loginuser" action="./assets/addCategoryProcess.php" method="POST">
                         <div class="user-details">
                         <div class="input-box">
                                 <span class="details">Range:</span>
@@ -135,13 +135,13 @@
 
     <!-- Footer -->
     <?php
-        include("../assets/footer.html");
+        include("./assets/footer.html");
     ?>
     
     <!-- Bootstrap core JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS -->
-    <script src="../assets/js/scripts.js"></script>
+    <script src="./assets/js/scripts.js"></script>
 
 </body>
 

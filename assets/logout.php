@@ -1,6 +1,7 @@
 <?php
+    echo "<script src='../assets/js/alertmsg.js'></script>";
     session_start();
     session_destroy();
-    header('Location: ../index.php');
+    echo "<script>logout()</script>";
 ?>
 

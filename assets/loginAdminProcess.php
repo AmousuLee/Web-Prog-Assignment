@@ -1,5 +1,5 @@
 <?php
-    echo "<script src='../assets/js/alertmsg.js'></script>";
+    echo "<script src='./assets/js/alertmsg.js'></script>";
     
     $email = $_POST["email"];
     $password = $_POST["password"];
@@ -27,7 +27,7 @@
             $_SESSION["login"] = "admin";
             
             $conn->close();
-            header('Location: ../admin/home_admin.php');
+            header('Location: ../home_admin.php');
             die();
         }
         // else if result is 0, did not found user

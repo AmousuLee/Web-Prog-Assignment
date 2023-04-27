@@ -6,7 +6,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>User Page</title>
-        <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -15,16 +15,16 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
             rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../assets/css/styles.css" rel="stylesheet" />
-        <link href="../assets/css/userSearch.css" rel="stylesheet" />
-        <script src="../assets/js/alertmsg.js"></script>
+        <link href="./assets/css/styles.css" rel="stylesheet" />
+        <link href="./assets/css/userSearch.css" rel="stylesheet" />
+        <script src="./assets/js/alertmsg.js"></script>
     </head>
     <body>
     <!-- navbar start : for user -->
         <?php
-            include("../assets/navbar.php");
+            include("./assets/navbar.php");
         ?>
-                <header class="masthead text-white" style="margin-bottom: 10vh">
+                <header class="masthead text-center text-white" style="margin-bottom: 10vh">
             <div class="masthead-content">
                 <div class="container px-5">
                     <h1 class="masthead-heading mb-0">Search User</h1>
@@ -34,47 +34,47 @@
 
     <!-- main cont. start -->
     <?php   
-        $name = $_POST["name"];
+        $uname = $_POST["name"];
 
-    include("../assets/DB_conn.php");
+    include("./assets/DB_conn.php");
 
-    $sql = "SELECT * FROM `user` WHERE `name` = '$name';";
+    $sql = "SELECT * FROM `user` WHERE `name` = '$uname';";
     $result = mysqli_query($conn, $sql); 
     $row=mysqli_fetch_array($result,MYSQLI_BOTH);
 
-    if(mysqli_num_rows($result)>1){
-        $name == $row['name'];
+    if(mysqli_num_rows($result)>0){
         $id = $row['userID'];
+        $fName = $row['name'];
         $email = $row['email'];
         $password = $row['password'];
-        $phoneNo = $row['phoneNo']
+        $phoneNo = $row['phoneNo'];
     ?>
     <section id="scroll">
         <div class="bodyform">
             <div class="container px-5">
                 <div class="containerForm">
                     <div class="title">User Details</div>
-                    <form class="loginuser" action="../assets/deleteUser.php" method="POST">
+                    <form class="loginuser" action="./assets/deleteUser.php" method="POST">
                         <div class="user-details">
                         <div class="input-box">
                                 <span class="details">User ID:</span>
-                                <input type="text" id="name" name="id" value="<?php echo $id ?>"readonly>
+                                <input type="text" name="id" value="<?php echo $id ?>"readonly>
                             </div>
                             <div class="input-box">
                                 <span class="details">User name:</span>
-                                <input type="text" id="name" name="name" value="<?php echo $name ?>"readonly>
+                                <input type="text"  name="name" value="<?php echo $fName ?>"readonly>
                             </div>
                             <div class="input-box">
                                 <span class="details">Email:</span>
-                                <input type="text" id="name" name="email" value="<?php echo $email ?>"readonly>
+                                <input type="text" name="email" value="<?php echo $email ?>"readonly>
                             </div>
                             <div class="input-box">
                                 <span class="details">Password:</span>
-                                <input type="text" id="name" name="password" value="<?php echo $password ?>"readonly>
+                                <input type="text" name="password" value="<?php echo $password ?>"readonly>
                             </div>
                             <div class="input-box">
                                 <span class="details">Phone Number:</span>
-                                <input type="text" id="name" name="password" value="<?php echo $phoneNo ?>"readonly>
+                                <input type="text" name="phoneNo" value="<?php echo $phoneNo ?>"readonly>
                             </div>
                         </div>
                         <div>
@@ -135,7 +135,7 @@
 
     <!-- footer start -->
         <?php
-            include("../assets/footer.html");
+            include("./assets/footer.html");
         ?>
 
         <!-- Bootstrap core JS -->

@@ -1,4 +1,5 @@
 <?php
+    echo "<script src='../assets/js/alertmsg.js'></script>";
     session_start();
     $name =  $_SESSION["name"];
     $password = $_POST["password"];
@@ -29,15 +30,15 @@
 
             mysqli_query($conn, $sql);
             $conn->close();
-            header('Location: ../home_user.php');
+            echo "<script>successPasswordReset()</script>";
             die();
         }
-        // else if result more than 0, conflict with existing users
+        // else if result 0, no user found
         // ? return back to profile_user
         else
         {
             $conn->close();
-            header('Location: ../profile_user.php');
+            echo "<script>failUserNotFound()</script>";
             die();
         }
     }
@@ -46,7 +47,7 @@
     else
     {
         $conn->close();
-        header('Location: ../profile_user.php');
+        echo "<script>failFormIncomplete()</script>";
         die();
     }
 

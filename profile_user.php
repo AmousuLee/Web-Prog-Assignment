@@ -35,6 +35,10 @@
             $sql = "SELECT * FROM `user` WHERE `email` = '$email';";
             $result = mysqli_query($conn, $sql);
             $row = $result->fetch_assoc();
+
+            $fullName = $row['name'];
+            $email = $row['email'];
+            $phoneNo = $row['phoneNo'];
         }
     ?>
 
@@ -61,25 +65,25 @@
                             <div class="user-details">
                                 <div class="input-box">
                                     <span class="details">Full Name</span>
-                                    <input type="text" readonly style="border:transparent" name="name" value="<?php echo $row['name']; ?>">
+                                    <input type="text" readonly style="border:transparent" name="name" value="<?php echo $fullName; ?>">
                                 </div>
                                 <div class="input-box">
                                     <span class="details">Email</span>
-                                    <input type="email" name="email" value="<?php echo $row['email']; ?>"
+                                    <input type="email" readonly style="border:transparent" name="email" value="<?php echo $email; ?>"
                                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                                         title="Must contain standard format : johndoe@mail.com"
                                     >
                                 </div>
                                 <div class="input-box">
                                     <span class="details">Phone number <span>*(not necessary)</span></span>
-                                    <input type="text" name="phoneNo" value="<?php if($row['phoneNo'] != ''){ echo $row['phoneNo'];}?>" placeholder="exp. 0123334444"
+                                    <input type="text" name="phoneNo" value="<?php if($phoneNo != ''){ echo $phoneNo;}?>" placeholder="exp. 0123334444"
                                         pattern="\d{10,11}"
                                         title="Must contain 10/11 characters (Do not include +60)" 
                                     >
                                 </div>
                                 <div class="input-box">
                                     <span class="details">Password</span>
-                                    <a class='btn btn-primary' href='#' role='button'>Reset Password</a>
+                                    <a class='btn btn-primary' href='./profile_password.php' role='button'>Reset Password</a>
                                 </div>
                             </div>
                             <div>
